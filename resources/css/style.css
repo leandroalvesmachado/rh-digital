@@ -1,0 +1,18 @@
+.navbar-brand-box {
+    text-align: center;
+}
+
+#page-topbar {
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.15);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.15);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.15);
+}
+
+.footer {
+    position: fixed !important;
+    bottom: 0 !important;
+    z-index: 9999 !important;
+    -webkit-box-shadow: 10px 10px 5px 20px rgba(0,0,0,0.15);
+    -moz-box-shadow: 10px 10px 5px 20px rgba(0,0,0,0.15);
+    box-shadow: 10px 10px 5px 20px rgba(0,0,0,0.15);
+}
