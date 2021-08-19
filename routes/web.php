@@ -17,6 +17,16 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('home');
+// Route::get('/', function () {
+//     return view('home');
+// });
+
+
+Route::group(['namespace' => 'App\Http\Controllers'], function() {
+    // ADMIN
+    Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
+
+        // HOME
+        Route::get('/', 'HomeController@index')->name('home.index');
+    });
 });

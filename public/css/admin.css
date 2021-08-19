@@ -53,6 +53,7 @@
 
 .navbar-brand-box {
     text-align: center;
+    background-color: #64A9A4 !important;
 }
 
 #page-topbar {
@@ -60,6 +61,20 @@
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.15);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.15);
 }
+
+.vertical-menu {
+    background-color: #64A9A4 !important;
+}
+
+#sidebar-menu ul li a {
+    font-size: 14.5px !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+
+#sidebar-menu ul li a:hover {
+    background-color: #2E8B57;
+ }
 
 .footer {
     position: fixed !important;

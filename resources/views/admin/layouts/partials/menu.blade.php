@@ -1,0 +1,76 @@
+<div class="vertical-menu">
+    <div data-simplebar class="h-100">
+        <div id="sidebar-menu">
+            <ul class="metismenu list-unstyled" id="side-menu">
+                <li class="menu-title text-uppercase">Navegação</li>
+                <li class="text-uppercase">
+                    <a href="widgets.html" class="waves-effect">
+                        <i class="mdi mdi-view-dashboard text-white"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="text-uppercase">
+                    <a href="widgets.html" class="waves-effect">
+                        <i class="fa fa-map text-white" aria-hidden="true"></i>
+                        <span>Estados</span>
+                    </a>
+                </li>
+                <li class="text-uppercase">
+                    <a href="widgets.html" class="waves-effect">
+                        <i class="fas fa-id-badge text-white" aria-hidden="true"></i>
+                        <span>Funcionários</span>
+                    </a>
+                </li>
+                <li class="text-uppercase">
+                    <a href="widgets.html" class="waves-effect">
+                        <i class="fa fa-map-marker text-white" aria-hidden="true"></i>
+                        <span>Municípios</span>
+                    </a>
+                </li>
+                <li class="text-uppercase">
+                    <a href="widgets.html" class="waves-effect">
+                        <i class="fa fa-building text-white" aria-hidden="true"></i>
+                        <span>Órgãos</span>
+                    </a>
+                </li>
+                <li class="text-uppercase">
+                    <a href="widgets.html" class="waves-effect">
+                        <i class="fas fa-warehouse text-white"></i>
+                        <span>Setores</span>
+                    </a>
+                </li>
+                <li class="text-uppercase">
+                    <a href="widgets.html" class="waves-effect">
+                        <i class="fa fa-user text-white" aria-hidden="true"></i>
+                        <span>Usuários</span>
+                    </a>
+                </li>
+
+                <!-- <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="mdi mdi-email-outline"></i>
+                        <span> Email </span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="email-inbox.html">Inbox</a></li>
+                        <li><a href="email-read.html">Email Read</a></li>
+                        <li><a href="email-compose.html">Email Compose</a></li>
+                    </ul>
+                </li>
+                <li class="menu-title">Components</li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="mdi mdi-format-list-bulleted-type"></i>
+                        <span>Tables</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="tables-basic.html">Basic Tables</a></li>
+                        <li><a href="tables-datatable.html">Data Table</a></li>
+                        <li><a href="tables-responsive.html">Responsive Table</a></li>
+                        <li><a href="tables-editable.html">Editable Table</a></li>
+                    </ul>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</div>

@@ -9,23 +9,24 @@
     <!-- Css -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+    @livewireStyles
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/admin.js') }}" defer></script>
 </head>
 <body data-sidebar="dark">
     <!-- Loader -->
-    @include('layouts.partials.preloader')
+    @include('admin.layouts.partials.preloader')
     <!-- Loader End -->
 
     <!-- Page -->
     <div id="layout-wrapper">
         <!-- Header -->
-        @include('layouts.partials.header')
+        @include('admin.layouts.partials.header')
         <!-- Header End -->
 
         <!-- Menu -->
-        @include('layouts.partials.menu')
+        @include('admin.layouts.partials.menu')
         <!-- Menu End -->
 
         <!-- Content -->
@@ -37,7 +38,7 @@
                 </div>
             </div>
             <!-- Footer -->
-            @include('layouts.partials.footer')
+            @include('admin.layouts.partials.footer')
             <!-- Footer End -->
         </div>
         <!-- Content End -->
@@ -51,5 +52,7 @@
 
     <!-- Right bar overlay-->
     <div class="rightbar-overlay"></div>
+
+    @livewireScripts
 </body>
 </html>
