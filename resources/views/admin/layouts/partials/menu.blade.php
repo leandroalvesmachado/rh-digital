@@ -4,43 +4,49 @@
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title text-uppercase">Navegação</li>
                 <li class="text-uppercase">
-                    <a href="widgets.html" class="waves-effect">
+                    <a
+                        href="{{ route('admin.home.index') }}"
+                        class="waves-effect @if (request()->is('admin')) active @endif"
+                    >
                         <i class="mdi mdi-view-dashboard text-white"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="text-uppercase">
-                    <a href="widgets.html" class="waves-effect">
+                    <a
+                        href="{{ route('admin.estados.index') }}"
+                        class="waves-effect @if (request()->is('admin/estados*')) active @endif"
+                    >
                         <i class="fa fa-map text-white" aria-hidden="true"></i>
                         <span>Estados</span>
                     </a>
                 </li>
                 <li class="text-uppercase">
-                    <a href="widgets.html" class="waves-effect">
+                    <a href="widgets.html" class="waves-effect @if (request()->is('admin/funcionarios*')) active @endif">
                         <i class="fas fa-id-badge text-white" aria-hidden="true"></i>
                         <span>Funcionários</span>
                     </a>
                 </li>
                 <li class="text-uppercase">
-                    <a href="widgets.html" class="waves-effect">
+                    <a href="widgets.html" class="waves-effect @if (request()->is('admin/municipios*')) active @endif">
                         <i class="fa fa-map-marker text-white" aria-hidden="true"></i>
                         <span>Municípios</span>
                     </a>
                 </li>
                 <li class="text-uppercase">
-                    <a href="widgets.html" class="waves-effect">
+                    <a href="widgets.html" class="waves-effect @if (request()->is('admin/orgaos*')) active @endif">
                         <i class="fa fa-building text-white" aria-hidden="true"></i>
                         <span>Órgãos</span>
                     </a>
                 </li>
                 <li class="text-uppercase">
-                    <a href="widgets.html" class="waves-effect">
+                    <a href="widgets.html" class="waves-effect @if (request()->is('admin/setores*')) active @endif">
                         <i class="fas fa-warehouse text-white"></i>
                         <span>Setores</span>
                     </a>
                 </li>
                 <li class="text-uppercase">
-                    <a href="widgets.html" class="waves-effect">
+                    <a href="widgets.html" class="waves-effect @if (request()->is('admin/usuarios*')) active @endif">
                         <i class="fa fa-user text-white" aria-hidden="true"></i>
                         <span>Usuários</span>
                     </a>

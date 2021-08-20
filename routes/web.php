@@ -13,20 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
-// Route::get('/', function () {
-//     return view('home');
-// });
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
+require __DIR__.'/auth.php';
 
-Route::group(['namespace' => 'App\Http\Controllers'], function() {
+Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], function() {
     // ADMIN
     Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
 
         // HOME
         Route::get('/', 'HomeController@index')->name('home.index');
+
+        // ESTADOS
+        Route::prefix('estados')->name('estados.')->group(function() {
+            Route::get('/', 'EstadoController@index')->name('index');
+            Route::get('/{estado}', 'EstadoController@show')->name('show');
+        });
     });
 });
