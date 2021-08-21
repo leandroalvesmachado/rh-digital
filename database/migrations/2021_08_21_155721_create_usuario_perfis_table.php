@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEstadosTable extends Migration
+class CreateUsuarioPerfisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateEstadosTable extends Migration
      */
     public function up()
     {
-        Schema::create('estados', function (Blueprint $table) {
+        Schema::create('usuario_perfis', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('nome')->unique();
-            $table->string('slug')->unique();
-            $table->string('sigla')->unique();
-            $table->string('codigo_ibge')->nullable();
+            $table->uuid('usuario_id');
+            $table->foreign('usuario_id')->references('id')->on('usuarios')->onUpdate('cascade');
+            $table->uuid('perfil_id');
+            $table->foreign('perfil_id')->references('id')->on('perfis')->onUpdate('cascade');
             $table->boolean('ativo')->default(1);
             $table->uuid('created_by');
             $table->foreign('created_by')->references('id')->on('usuarios')->onUpdate('cascade');
@@ -28,6 +28,8 @@ class CreateEstadosTable extends Migration
             $table->foreign('deleted_by')->references('id')->on('usuarios')->onUpdate('cascade');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index(['usuario_id', 'perfil_id']);
         });
     }
 
@@ -38,6 +40,6 @@ class CreateEstadosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('estados');
+        Schema::dropIfExists('usuario_perfis');
     }
 }

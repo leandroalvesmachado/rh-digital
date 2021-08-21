@@ -22,8 +22,10 @@ class CreateOrgaosTable extends Migration
             $table->string('nome');
             $table->string('slug');
             $table->string('sigla');
+            $table->string('bairro');
             $table->string('cep', 8);
             $table->string('endereco');
+            $table->string('endereco_complemento');
             $table->string('telefone', 11)->nullable();
             $table->string('numero')->nullable();
             $table->string('site')->nullable();

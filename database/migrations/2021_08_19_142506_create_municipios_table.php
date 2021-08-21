@@ -19,7 +19,7 @@ class CreateMunicipiosTable extends Migration
             $table->foreign('estado_id')->references('id')->on('estados')->onUpdate('cascade');
             $table->string('nome');
             $table->string('slug');
-            $table->integer('codigo_ibge')->nullable();
+            $table->string('codigo_ibge')->nullable();
             $table->boolean('ativo')->default(1);
             $table->uuid('created_by');
             $table->foreign('created_by')->references('id')->on('usuarios')->onUpdate('cascade');

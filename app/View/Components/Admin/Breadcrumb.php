@@ -7,15 +7,17 @@ use Illuminate\View\Component;
 class Breadcrumb extends Component
 {
     public $title;
+    public $items;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title)
+    public function __construct($title, $items)
     {
         $this->title = $title;
+        $this->items = $items;
     }
 
     /**

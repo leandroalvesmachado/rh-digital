@@ -28,6 +28,8 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
+        Auth::logoutOtherDevices($request->password);
+
         $request->authenticate();
 
         $request->session()->regenerate();

@@ -17,8 +17,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UsuarioSeeder::class,
             EstadoSeeder::class,
+            MunicipioSeeder::class,
+            OrgaoSeeder::class,
             SecaoSeeder::class,
-            ArquivoTipoSeeder::class
+            ArquivoTipoSeeder::class,
+            PerfilSeeder::class,
+            UsuarioPerfilSeeder::class
         ]);
     }
 }
