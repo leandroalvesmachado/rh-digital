@@ -35,5 +35,15 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
             Route::get('/', 'EstadoController@index')->name('index');
             Route::get('/{estado}', 'EstadoController@show')->name('show');
         });
+
+        // FUNCIONARIOS
+        Route::prefix('funcionarios')->name('funcionarios.')->group(function() {
+        });
+
+        // SECOES
+        Route::prefix('secoes')->name('secoes.')->group(function() {
+            Route::get('/', 'SecaoController@index')->name('index');
+            Route::get('/{secao}', 'SecaoController@show')->name('show');
+        });
     });
 });

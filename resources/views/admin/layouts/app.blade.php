@@ -15,12 +15,14 @@
     <script src="{{ asset('js/admin.js') }}" defer></script>
 </head>
 <body data-sidebar="dark">
+
     <!-- Loader -->
     @include('admin.layouts.partials.preloader')
     <!-- Loader End -->
 
     <!-- Page -->
     <div id="layout-wrapper">
+
         <!-- Header -->
         @include('admin.layouts.partials.header')
         <!-- Header End -->
@@ -33,10 +35,13 @@
         <div class="main-content">
             <div class="page-content">
                 <div class="container-fluid">
+
                     @yield('breadcrumb')
+
                     @yield('content')
                 </div>
             </div>
+
             <!-- Footer -->
             @include('admin.layouts.partials.footer')
             <!-- Footer End -->
