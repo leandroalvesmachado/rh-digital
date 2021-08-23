@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use App\Models\Perfil;
+
 class Usuario extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -75,6 +77,16 @@ class Usuario extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function isAdmin()
+    {
+        return $this->perfis->contains('codigo', Perfil::ADMIN);
+    }
+
+    public function isModerador()
+    {
+        return $this->perfis->contains('codigo', Perfil::MODERADOR);
+    }
 
     public function perfis()
     {

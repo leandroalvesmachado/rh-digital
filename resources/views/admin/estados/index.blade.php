@@ -54,29 +54,27 @@
             {{ $estado->sigla }}
         </td>
         <td class="align-middle">
-            <div class="btn-group me-1 mt-2 dropstart">
-                <button
-                    type="button"
-                    class="btn btn-success dropdown-toggle"
-                    data-bs-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                >
-                    <i class="fas fa-cog"></i>
-                    <i class="mdi mdi-chevron-down"></i>
-                </button>
-                <div class="dropdown-menu" style="">
-                    <a class="dropdown-item" href="{{ route('admin.estados.show', $estado) }}">
-                        <i class="fas fa-file-alt"></i> Detalhes
-                    </a>
-                </div>
-            </div>
+            <x-admin.action
+                :target="$estado->id"
+                :object="$estado"
+            >
+                <a class="dropdown-item" href="{{ route('admin.estados.show', $estado) }}">
+                    <i class="fas fa-file-alt"></i> Detalhes
+                </a>
+                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">
+                    <i class="fa fa-eye"></i> Visualizar
+                </a>
+            </x-admin.action>
         </td>
     </tr>
+
+    <x-admin.modal
+        :target="$estado->id"
+        :object="$estado"
+    >
+        fwfsdfsdfs
+    </x-admin.modal>
     @empty
-    <tr>
-        <td class="align-middle" colspan="3">Nenhum registro encontrado</td>
-    </tr>
     @endforelse
 </x-admin.table>
 

@@ -16,10 +16,6 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-
-        echo"<pre>";
-        print_r($user->perfis);
-        exit();
         return view('admin.home.index');
     }
 

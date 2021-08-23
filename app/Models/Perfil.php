@@ -48,4 +48,7 @@ class Perfil extends Model implements Auditable
      * @var bool
      */
     public $timestamps = true;
+
+    const ADMIN = 1;
+    const MODERADOR = 2;
 }
