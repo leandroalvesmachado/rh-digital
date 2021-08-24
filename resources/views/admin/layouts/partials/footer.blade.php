@@ -7,7 +7,7 @@
             <div class="col-sm-6">
                 <div class="text-sm-end d-none d-sm-block">
                     CGM - Controladoria e Ouvidoria Geral do Município
-                    Crafted with <i class="mdi mdi-heart text-danger"></i> by CETIC
+                    <i class="mdi mdi-heart text-danger"></i> by CETIC
                 </div>
             </div>
         </div>

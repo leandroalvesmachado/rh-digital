@@ -33,7 +33,12 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
         // ESTADOS
         Route::prefix('estados')->name('estados.')->group(function() {
             Route::get('/', 'EstadoController@index')->name('index');
+            Route::get('/cadastro', 'EstadoController@create')->name('create');
+            Route::post('/', 'EstadoController@store')->name('store');
             Route::get('/{estado}', 'EstadoController@show')->name('show');
+            Route::get('/{estado}/edicao', 'EstadoController@edit')->name('edit');
+            Route::put('/{estado}', 'EstadoController@update')->name('update');
+            Route::delete('/{estado}', 'EstadoController@destroy')->name('destroy');
         });
 
         // FUNCIONARIOS

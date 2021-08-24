@@ -44,6 +44,7 @@
     model="Estado"
     :headers="['Nome', 'Sigla', 'Ações']"
     :records="$estados"
+    route="{{ route('admin.estados.create') }}"
 >
     @forelse ($estados as $estado)
     <tr>
@@ -61,7 +62,7 @@
                 <a class="dropdown-item" href="{{ route('admin.estados.show', $estado) }}">
                     <i class="fas fa-file-alt"></i> Detalhes
                 </a>
-                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">
+                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal-{{ $estado->id }}">
                     <i class="fa fa-eye"></i> Visualizar
                 </a>
             </x-admin.action>
@@ -69,10 +70,21 @@
     </tr>
 
     <x-admin.modal
+        title="Estado: {{ $estado->nome }}"
         :target="$estado->id"
         :object="$estado"
+        size="lg"
     >
-        fwfsdfsdfs
+        <div class="row">
+            <div class="col-md-4">
+                <p><strong>Nome:</strong></p>
+                <p>{{ $estado->nome }}</p>
+            </div>
+            <div class="col-md-4">
+                <p><strong>Sigla:</strong></p>
+                <p>{{ $estado->sigla }}</p>
+            </div>
+        </div>
     </x-admin.modal>
     @empty
     @endforelse

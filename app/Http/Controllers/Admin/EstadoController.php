@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Repositories\EstadoRepository;
 
+use App\Models\Estado;
+
 class EstadoController extends Controller
 {
     public function __construct(EstadoRepository $estadoRepository)
@@ -39,7 +41,7 @@ class EstadoController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.estados.create');
     }
 
     /**
@@ -59,9 +61,11 @@ class EstadoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Estado $estado)
     {
-        //
+        return view('admin.estados.show', [
+            'estado' => $estado
+        ]);
     }
 
     /**
@@ -70,9 +74,11 @@ class EstadoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Estado $estado)
     {
-        //
+        return view('admin.estados.edit', [
+            'estado' => $estado
+        ]);
     }
 
     /**

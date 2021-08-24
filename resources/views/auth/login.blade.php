@@ -18,6 +18,11 @@
             autocomplete="email"
             placeholder="Digite o seu e-mail"
         >
+        @error('email')
+        <div class="invalid-feedback fs-6 text">
+            {{ $message }}
+        </div>
+        @enderror
     </div>
     <div class="mb-3">
         <label class="form-label" for="password">
@@ -31,6 +36,11 @@
             autocomplete="current-password"
             placeholder="Digite a sua senha"
         >
+        @error('password')
+        <div class="invalid-feedback fs-6 text">
+            {{ $message }}
+        </div>
+        @enderror
     </div>
     <div class="row mt-4">
         <div class="col-sm-6">

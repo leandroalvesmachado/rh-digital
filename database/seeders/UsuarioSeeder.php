@@ -20,6 +20,14 @@ class UsuarioSeeder extends Seeder
             [
                 'id' => Str::orderedUuid(),
                 'name' => 'Administrador',
+                'email' => 'tic.cgm@cgm.fortaleza.ce.gov.br',
+                'password' => Hash::make('password'),
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'name' => 'Administrador',
                 'email' => 'leandro.machado@cgm.fortaleza.ce.gov.br',
                 'password' => Hash::make('password'),
                 'created_at' => date('Y-m-d H:i:s'),
