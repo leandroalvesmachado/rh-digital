@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-12">
-        <form action="{{ isset($action) ? $action : '#' }}">
+        {!! Form::open(['route' => isset($action) ? $action : '#', 'class' => '']) !!}
             <div class="card">
                 <div class="card-header bg-transparent">
                     <h5 class="card-title text-teal text-uppercase fw-bold">
@@ -28,6 +28,6 @@
                     </div>
                 </div>
             </div>
-        </form>
+        {!! Form::close() !!}
     </div>
 </div>

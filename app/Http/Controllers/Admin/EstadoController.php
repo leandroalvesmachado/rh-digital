@@ -9,6 +9,8 @@ use App\Repositories\EstadoRepository;
 
 use App\Models\Estado;
 
+use App\Http\Requests\Admin\EstadoStoreRequest;
+
 class EstadoController extends Controller
 {
     public function __construct(EstadoRepository $estadoRepository)
@@ -50,7 +52,7 @@ class EstadoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EstadoStoreRequest $request)
     {
         //
     }

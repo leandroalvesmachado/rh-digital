@@ -2,11 +2,6 @@
 
 @section('breadcrumb')
 
-<x-admin.breadcrumb
-    title="Estados"
-    :items="['Estados']"
-/>
-
 @endsection
 
 @section('content')
