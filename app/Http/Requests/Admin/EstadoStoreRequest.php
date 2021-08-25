@@ -24,8 +24,31 @@ class EstadoStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome' => 'required',
-            'sigla' => 'required'
+            'nome' => 'required|max:255',
+            'sigla' => 'required|max:255'
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [];
+    }
+
+    /**
+     * Get custom attributes for validator errors.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            'nome' => 'Nome',
+            'sigla' => 'Sigla'
         ];
     }
 }

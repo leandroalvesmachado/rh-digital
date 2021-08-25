@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 use OwenIt\Auditing\Contracts\Auditable;
 
@@ -48,4 +50,28 @@ class Estado extends Model implements Auditable
      * @var bool
      */
     public $timestamps = true;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'nome',
+        'sigla'
+    ];
+
+    public function __construct($attributes = [])
+    {
+        parent::__construct($attributes);
+        $this->id = Str::orderedUuid();
+        $this->created_by = Auth::id();
+        $this->updated_by = Auth::id();
+    }
+
+    public function setNomeAttribute($value)
+    {
+        $this->attributes['nome'] = $value;
+        $this->attributes['slug'] = Str::slug($value);
+    }
 }

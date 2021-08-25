@@ -60,6 +60,9 @@
                 <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal-{{ $estado->id }}">
                     <i class="fa fa-eye"></i> Visualizar
                 </a>
+                <a class="dropdown-item" href="{{ route('admin.estados.edit', $estado) }}">
+                    <i class="fas fa-user-edit"></i> Editar
+                </a>
             </x-admin.action>
         </td>
     </tr>

@@ -11,6 +11,7 @@
     subtitle="Novo"
     action="admin.estados.store"
     routeBack="{{ route('admin.estados.index') }}"
+    type="create"
 >
     @include('admin.estados.partials.form')
 </x-admin.form>

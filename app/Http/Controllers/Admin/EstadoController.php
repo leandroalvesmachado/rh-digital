@@ -54,7 +54,17 @@ class EstadoController extends Controller
      */
     public function store(EstadoStoreRequest $request)
     {
-        //
+        $result = $this->estadoRepository->add($request->except(['_token']));
+
+        if ($result === true) {
+            flash('Estado cadastrado com sucesso!')->success();
+
+            return redirect()->route('admin.estados.index');
+        }
+
+        flash('Erro ao cadastrar o estado! '.$result)->error();
+
+        return redirect()->route('admin.estados.create');
     }
 
     /**

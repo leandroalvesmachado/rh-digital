@@ -39,4 +39,16 @@ class EstadoRepository extends BaseRepository
             return [];
         }
     }
+
+    public function add($data)
+    {
+        try {
+            $estado = new $this->model($data);
+            $estado->save();
+
+            return true;
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
 }

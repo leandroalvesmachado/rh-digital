@@ -14,7 +14,7 @@
     <div class="col-md-4">
         <label for="sigla" class="form-label">Sigla</label>
         {!!
-            Form::text('sigla', request()->get('sigla'), [
+            Form::text('sigla', null, [
                 'id' => 'sigla',
                 'class' => 'form-control '.($errors->has('nome') ? 'is-invalid' : '')
             ])
