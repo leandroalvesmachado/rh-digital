@@ -40,7 +40,7 @@ class EstadoRepository extends BaseRepository
         }
     }
 
-    public function add($data)
+    public function store($data)
     {
         try {
             $estado = new $this->model($data);
@@ -48,6 +48,18 @@ class EstadoRepository extends BaseRepository
 
             return true;
         } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function update(Estado $estado, $data)
+    {
+        try {
+            $estado->fill($data);
+            $estado->save();
+
+            return true;
+        } catch (Exception $e){
             return $e->getMessage();
         }
     }

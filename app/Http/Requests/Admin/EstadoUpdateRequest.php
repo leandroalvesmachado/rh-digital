@@ -4,7 +4,9 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EstadoStoreRequest extends FormRequest
+use App\Models\Estado;
+
+class EstadoUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +25,10 @@ class EstadoStoreRequest extends FormRequest
      */
     public function rules()
     {
+        $id = $this->route('model') ? $this->route('model') : '';
+
         return [
-            'nome' => 'required|max:255|unique:estados,nome,NULL,id,deleted_at,NULL',
+            'nome' => 'required|max:255|unique:estados,nome,'.$id.',id,deleted_at,NULL',
             'sigla' => 'required|max:255',
             'codigo_ibge' => 'nullable|max:255'
         ];

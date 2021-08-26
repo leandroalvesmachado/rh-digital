@@ -25,7 +25,7 @@
     <div class="col-md-3">
         <label for="codigo_ibge" class="form-label">Código IBGE</label>
         {!!
-            Form::text('codigo_ibge', old('codigo_ibge', isset($estado) ? $estado->sigla : ''), [
+            Form::text('codigo_ibge', old('codigo_ibge', isset($estado) ? $estado->codigo_ibge : ''), [
                 'id' => 'codigo_ibge',
                 'class' => 'form-control '.($errors->has('codigo_ibge') ? 'is-invalid' : '')
             ])

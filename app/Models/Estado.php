@@ -58,7 +58,8 @@ class Estado extends Model implements Auditable
      */
     protected $fillable = [
         'nome',
-        'sigla'
+        'sigla',
+        'codigo_ibge'
     ];
 
     public function __construct($attributes = [])

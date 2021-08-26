@@ -10,6 +10,7 @@ use App\Repositories\EstadoRepository;
 use App\Models\Estado;
 
 use App\Http\Requests\Admin\EstadoStoreRequest;
+use App\Http\Requests\Admin\EstadoUpdateRequest;
 
 class EstadoController extends Controller
 {
@@ -54,7 +55,7 @@ class EstadoController extends Controller
      */
     public function store(EstadoStoreRequest $request)
     {
-        $result = $this->estadoRepository->add($request->except(['_token']));
+        $result = $this->estadoRepository->store($request->except(['_token']));
 
         if ($result === true) {
             flash('Estado cadastrado com sucesso!')->success();
@@ -100,9 +101,22 @@ class EstadoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EstadoUpdateRequest $request, Estado $estado)
     {
-        //
+        $result = $this->estadoRepository->update($estado, $request->except(['_token']));
+        dd($result);
+
+        if ($result === true) {
+            flash('Estado atualizado com sucesso!')->success();
+
+            return redirect()->route('admin.estados.index');
+        }
+
+        flash('Erro ao atualizar o estado! '.$result)->error();
+
+        return redirect()->route('admin.estados.edit', [
+            'estado' => $estado
+        ]);
     }
 
     /**
