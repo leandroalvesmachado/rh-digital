@@ -9,9 +9,9 @@
 <x-admin.form
     title="Estado"
     subtitle="Edição"
-    action="admin.estados.update"
-    routeBack="{{ route('admin.estados.index') }}"
-    type="edit"
+    :action="route('admin.estados.update', $estado)"
+    :routeBack="route('admin.estados.index')"
+    type="update"
     :model="$estado"
 >
     @include('admin.estados.partials.form')

@@ -37,7 +37,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
             Route::post('/', 'EstadoController@store')->name('store');
             Route::get('/{estado}', 'EstadoController@show')->name('show');
             Route::get('/{estado}/edicao', 'EstadoController@edit')->name('edit');
-            Route::put('/{estado}', 'EstadoController@update')->name('update');
+            Route::put('/{model}', 'EstadoController@update')->name('update');
             Route::delete('/{estado}', 'EstadoController@destroy')->name('destroy');
         });
 

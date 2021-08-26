@@ -2,12 +2,11 @@
     <div class="col-12">
     @if (isset($type))
         @switch($type)
-            @case("create")
+            @case("store")
                 {!! Form::open(['url' => isset($action) ? $action : '#', 'class' => '', 'files' => 'true']) !!}
                 @break
-            @case("edit")
-                {!! Form::model($model, ['route' => [isset($action) ? $action : '#', $model], 'class' => '', 'files' => 'true']) !!}
-                {{ method_field('PUT') }}
+            @case("update")
+                {!! Form::model($model, ['url' => [isset($action) ? $action : '#', $model], 'method' => 'put', 'class' => '', 'files' => 'true']) !!}
                 @break
         @endswitch
         <div class="card">
@@ -31,7 +30,15 @@
                     </div>
                     <div class="col-6 col-sm-6 col-md-2 d-grid">
                         <button type="submit" class="btn btn-success">
-                            <i class="fas fa-save"></i> Salvar
+                            <i class="fas fa-save"></i> 
+                            @switch($type)
+                                @case("store")
+                                    Salvar
+                                    @break
+                                @case("update")
+                                    Atualizar
+                                    @break
+                            @endswitch
                         </button>
                     </div>
                 </div>

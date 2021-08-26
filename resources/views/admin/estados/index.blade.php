@@ -39,7 +39,7 @@
     model="Estado"
     :headers="['Nome', 'Sigla', 'Ações']"
     :records="$estados"
-    route="{{ route('admin.estados.create') }}"
+    :route="route('admin.estados.create')"
 >
     @forelse ($estados as $estado)
     <tr>
@@ -81,6 +81,10 @@
             <div class="col-md-4">
                 <p><strong>Sigla:</strong></p>
                 <p>{{ $estado->sigla }}</p>
+            </div>
+            <div class="col-md-4">
+                <p><strong>Código IBGE:</strong></p>
+                <p>{{ $estado->codigo_ibge }}</p>
             </div>
         </div>
     </x-admin.modal>

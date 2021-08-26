@@ -4,20 +4,18 @@ namespace App\View\Components\Admin;
 
 use Illuminate\View\Component;
 
-class Breadcrumb extends Component
+class Validation extends Component
 {
-    public $title;
-    public $items;
+    public $message;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title = null, $items = null)
+    public function __construct($message = null)
     {
-        $this->title = $title;
-        $this->items = $items;
+        $this->message = $message;
     }
 
     /**
@@ -27,6 +25,6 @@ class Breadcrumb extends Component
      */
     public function render()
     {
-        return view('components.admin.breadcrumb');
+        return view('components.admin.validation');
     }
 }

@@ -24,7 +24,8 @@ class Form extends Component
         $action = null,
         $routeBack = null,
         $type = null,
-        $model = null
+        $model = null,
+        $binding = null
     )
     {
         $this->title = $title;

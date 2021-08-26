@@ -25,7 +25,8 @@ class EstadoStoreRequest extends FormRequest
     {
         return [
             'nome' => 'required|max:255',
-            'sigla' => 'required|max:255'
+            'sigla' => 'required|max:255',
+            'codigo_ibge' => 'nullable|max:255'
         ];
     }
 
@@ -48,7 +49,8 @@ class EstadoStoreRequest extends FormRequest
     {
         return [
             'nome' => 'Nome',
-            'sigla' => 'Sigla'
+            'sigla' => 'Sigla',
+            'codigo_ibge' => 'Código IBGE'
         ];
     }
 }
