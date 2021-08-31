@@ -28,7 +28,7 @@
                     </a>
                 </li>
                 <li class="text-uppercase">
-                    <a href="widgets.html" class="waves-effect @if (request()->is('admin/municipios*')) active @endif">
+                    <a href="{{ route('admin.municipios.index') }}" class="waves-effect @if (request()->is('admin/municipios*')) active @endif">
                         <i class="fa fa-map-marker text-white" aria-hidden="true"></i>
                         <span>Municípios</span>
                     </a>

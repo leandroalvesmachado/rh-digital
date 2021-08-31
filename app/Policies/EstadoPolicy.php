@@ -5,10 +5,22 @@ namespace App\Policies;
 use App\Models\Estado;
 use App\Models\Usuario;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Auth\Access\Response;
+
+use Exception;
 
 class EstadoPolicy
 {
     use HandlesAuthorization;
+
+    // Controller Method	Policy Method
+    // index	            viewAny
+    // show	                view
+    // create	            create
+    // store	            create
+    // edit	                update
+    // update	            update
+    // destroy	            delete
 
     /**
      * Determine whether the user can view any models.
@@ -18,7 +30,7 @@ class EstadoPolicy
      */
     public function viewAny(Usuario $usuario)
     {
-        //
+        return true;
     }
 
     /**
@@ -30,7 +42,7 @@ class EstadoPolicy
      */
     public function view(Usuario $usuario, Estado $estado)
     {
-        //
+        return true;
     }
 
     /**
@@ -41,7 +53,11 @@ class EstadoPolicy
      */
     public function create(Usuario $usuario)
     {
-        //
+        try {
+            return $usuario->isAdmin() ? true : false;
+        } catch (Exception $e) {
+            return false;
+        }
     }
 
     /**
@@ -53,7 +69,11 @@ class EstadoPolicy
      */
     public function update(Usuario $usuario, Estado $estado)
     {
-        //
+        try {
+            return $usuario->isAdmin() ? true : false;
+        } catch (Exception $e) {
+            return false;
+        }
     }
 
     /**
@@ -65,7 +85,11 @@ class EstadoPolicy
      */
     public function delete(Usuario $usuario, Estado $estado)
     {
-        //
+        try {
+            return $usuario->isAdmin() ? true : false;
+        } catch (Exception $e) {
+            return false;
+        }
     }
 
     /**
@@ -77,7 +101,7 @@ class EstadoPolicy
      */
     public function restore(Usuario $usuario, Estado $estado)
     {
-        //
+        return false;
     }
 
     /**
@@ -89,6 +113,6 @@ class EstadoPolicy
      */
     public function forceDelete(Usuario $usuario, Estado $estado)
     {
-        //
+        return false;
     }
 }

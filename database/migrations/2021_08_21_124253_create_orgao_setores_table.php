@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSetoresTable extends Migration
+class CreateOrgaoSetoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSetoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('setores', function (Blueprint $table) {
+        Schema::create('orgao_setores', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('orgao_id');
             $table->foreign('orgao_id')->references('id')->on('orgaos')->onUpdate('cascade');
@@ -39,6 +39,6 @@ class CreateSetoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('setores');
+        Schema::dropIfExists('orgao_setores');
     }
 }

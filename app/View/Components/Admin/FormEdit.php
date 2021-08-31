@@ -4,13 +4,12 @@ namespace App\View\Components\Admin;
 
 use Illuminate\View\Component;
 
-class Form extends Component
+class FormEdit extends Component
 {
     public $title;
     public $subtitle;
     public $action;
     public $routeBack;
-    public $type;
     public $model;
 
     /**
@@ -23,16 +22,13 @@ class Form extends Component
         $subtitle = null,
         $action = null,
         $routeBack = null,
-        $type = null,
-        $model = null,
-        $binding = null
+        $model = null
     )
     {
         $this->title = $title;
         $this->subtitle = $subtitle;
         $this->action = $action;
         $this->routeBack = $routeBack;
-        $this->type = $type;
         $this->model = $model;
     }
 
@@ -43,6 +39,6 @@ class Form extends Component
      */
     public function render()
     {
-        return view('components.admin.form');
+        return view('components.admin.form-edit');
     }
 }

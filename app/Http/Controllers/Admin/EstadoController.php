@@ -16,6 +16,7 @@ class EstadoController extends Controller
 {
     public function __construct(EstadoRepository $estadoRepository)
     {
+        $this->authorizeResource(Estado::class, 'estado');
         $this->estadoRepository = $estadoRepository;
     }
 

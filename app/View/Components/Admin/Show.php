@@ -4,14 +4,11 @@ namespace App\View\Components\Admin;
 
 use Illuminate\View\Component;
 
-class Table extends Component
+class Show extends Component
 {
     public $title;
     public $subtitle;
-    public $model;
-    public $headers;
-    public $records;
-    public $route;
+    public $routeBack;
 
     /**
      * Create a new component instance.
@@ -21,18 +18,12 @@ class Table extends Component
     public function __construct(
         $title = null,
         $subtitle = null,
-        $model = null,
-        $headers = null,
-        $records = null,
-        $route = null
+        $routeBack = null
     )
     {
         $this->title = $title;
         $this->subtitle = $subtitle;
-        $this->model = $model;
-        $this->headers = $headers;
-        $this->records = $records;
-        $this->route = $route;
+        $this->routeBack = $routeBack;
     }
 
     /**
@@ -42,6 +33,6 @@ class Table extends Component
      */
     public function render()
     {
-        return view('components.admin.table');
+        return view('components.admin.show');
     }
 }

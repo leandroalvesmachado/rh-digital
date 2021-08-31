@@ -10,14 +10,13 @@
 
 @section('content')
 
-<x-admin.form
+<x-admin.form-create
     title="Estado"
     subtitle="Novo"
     :action="route('admin.estados.store')"
     :routeBack="route('admin.estados.index')"
-    type="store"
 >
     @include('admin.estados.partials.form')
-</x-admin.form>
+</x-admin.form-create>
 
 @endsection

@@ -37,12 +37,23 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
             Route::post('/', 'EstadoController@store')->name('store');
             Route::get('/{estado}', 'EstadoController@show')->name('show');
             Route::get('/{estado}/edicao', 'EstadoController@edit')->name('edit');
-            Route::put('/{model}', 'EstadoController@update')->name('update');
+            Route::put('/{estado}', 'EstadoController@update')->name('update');
             Route::delete('/{estado}', 'EstadoController@destroy')->name('destroy');
         });
 
         // FUNCIONARIOS
         Route::prefix('funcionarios')->name('funcionarios.')->group(function() {
+        });
+
+        // MUNICIPIOS
+        Route::prefix('municipios')->name('municipios.')->group(function() {
+            Route::get('/', 'MunicipioController@index')->name('index');
+            Route::get('/cadastro', 'MunicipioController@create')->name('create');
+            Route::post('/', 'MunicipioController@store')->name('store');
+            Route::get('/{municipio}', 'MunicipioController@show')->name('show');
+            Route::get('/{municipio}/edicao', 'MunicipioController@edit')->name('edit');
+            Route::put('/{municipio}', 'MunicipioController@update')->name('update');
+            Route::delete('/{municipio}', 'MunicipioController@destroy')->name('destroy');
         });
 
         // SECOES

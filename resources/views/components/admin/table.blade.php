@@ -6,15 +6,19 @@
                     <div class="col-6 col-sm-6 col-md-10 justify-content-start">
                         <h5 class="card-title text-teal text-uppercase fw-bold">
                             {{ isset($title) ? $title : '' }}
+                            @if(isset($subtitle))
                             <span class="badge bg-secondary fw-bold">
-                                {{ isset($subtitle) ? $subtitle : '' }}
+                                {{ $subtitle }}
                             </span>
+                            @endif
                         </h5>
                     </div>
                     <div class="d-grid col-6 col-sm-6 col-md-2">
+                        @if (isset($route) && isset($model))
                         <a class="btn btn-success" href="{{ $route }}" role="button">
                             <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> {{ isset($model) ? $model : '' }}
                         </a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -53,9 +57,9 @@
                         @if ($records->total() > 0)
                             Exibindo de {{ $records->firstItem() }}
                             até {{ $records->lastItem() }}
-                            de {{ $records->total() }} registros
+                            de {{ $records->total() }} registro(s)
                         @else
-                            {{ $records->total() }} registros
+                            {{ $records->total() }} registro(s)
                         @endif
                         </h6>
                     </div>
@@ -64,7 +68,7 @@
                     </div>
                     @else
                     <div class="col-6 d-flex justify-content-start mt-3">
-                        <h6>{{ $records->count() }} registros</h6>
+                        <h6>{{ $records->count() }} registro(s)</h6>
                     </div>
                     <div class="col-6 d-flex justify-content-end mt-2"></div>
                     @endif

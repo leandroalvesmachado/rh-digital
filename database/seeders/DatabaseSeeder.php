@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             EstadoSeeder::class,
             MunicipioSeeder::class,
             OrgaoSeeder::class,
+            OrgaoSetorSeeder::class,
             SecaoSeeder::class,
             ArquivoTipoSeeder::class,
             PerfilSeeder::class,
