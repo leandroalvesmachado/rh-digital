@@ -22,11 +22,11 @@
             !!}
         </div>
         <div class="col-md-4">
-            <label for="sigla" class="form-label">Sigla</label>
+            <label for="estado_id" class="form-label">Estado</label>
             {!!
-                Form::text('sigla', request()->get('sigla'), [
-                    'id' => 'sigla',
-                    'class' => 'form-control'
+                Form::select('estado_id', $estados, request()->get('estado_id'), [
+                    'id' => 'estado_id',
+                    'class' => 'form-select'
                 ])
             !!}
         </div>
@@ -37,7 +37,7 @@
     title="Municípios"
     subtitle="Listagem"
     model="Município"
-    :headers="['Nome', 'Sigla', 'Ações']"
+    :headers="['Nome', 'Estado', 'Ações']"
     :records="$municipios"
     :route="route('admin.municipios.create')"
 >
@@ -47,7 +47,7 @@
             {{ $municipio->nome }}
         </td>
         <td class="align-middle">
-            {{ $municipio->sigla }}
+            {{ $municipio->estado->nome }}
         </td>
         <td class="align-middle">
             <x-admin.action
@@ -79,12 +79,12 @@
                 <p>{{ $municipio->nome }}</p>
             </div>
             <div class="col-md-4">
-                <p><strong>Sigla:</strong></p>
-                <p>{{ $municipio->sigla }}</p>
-            </div>
-            <div class="col-md-4">
                 <p><strong>Código IBGE:</strong></p>
                 <p>{{ $municipio->codigo_ibge }}</p>
+            </div>
+            <div class="col-md-4">
+                <p><strong>Estado:</strong></p>
+                <p>{{ $municipio->estado->nome }}</p>
             </div>
         </div>
     </x-admin.modal>

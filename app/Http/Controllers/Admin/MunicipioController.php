@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Repositories\MunicipioRepository;
+use App\Repositories\EstadoRepository;
 
 use App\Models\Municipio;
 
@@ -14,9 +15,14 @@ use App\Http\Requests\Admin\MunicipioUpdateRequest;
 
 class MunicipioController extends Controller
 {
-    public function __construct(MunicipioRepository $municipioRepository)
+    public function __construct(
+        MunicipioRepository $municipioRepository,
+        EstadoRepository $estadoRepository
+    )
     {
+        $this->authorizeResource(Municipio::class, 'estado');
         $this->municipioRepository = $municipioRepository;
+        $this->estadoRepository = $estadoRepository;
     }
 
     /**
@@ -33,7 +39,8 @@ class MunicipioController extends Controller
         }
 
         return view('admin.municipios.index', [
-            'municipios' => $municipios
+            'municipios' => $municipios,
+            'estados' => $this->estadoRepository->selectOption()
         ]);
     }
 

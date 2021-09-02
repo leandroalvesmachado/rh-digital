@@ -14,11 +14,7 @@
                         </h5>
                     </div>
                     <div class="d-grid col-6 col-sm-6 col-md-2">
-                        @if (isset($route) && isset($model))
-                        <a class="btn btn-success" href="{{ $route }}" role="button">
-                            <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> {{ isset($model) ? $model : '' }}
-                        </a>
-                        @endif
+                        {{ isset($slotButton) ? $slotButton : '' }}
                     </div>
                 </div>
             </div>
@@ -55,9 +51,7 @@
                     <div class="col-6 d-flex justify-content-start mt-3">
                         <h6>
                         @if ($records->total() > 0)
-                            Exibindo de {{ $records->firstItem() }}
-                            até {{ $records->lastItem() }}
-                            de {{ $records->total() }} registro(s)
+                            Exibindo de {{ $records->firstItem() }} até {{ $records->lastItem() }} de {{ $records->total() }} registro(s)
                         @else
                             {{ $records->total() }} registro(s)
                         @endif
@@ -73,7 +67,6 @@
                     <div class="col-6 d-flex justify-content-end mt-2"></div>
                     @endif
                 </div>
-                @else
                 @endif
             </div>
         </div>

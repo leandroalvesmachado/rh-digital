@@ -39,8 +39,15 @@
     model="Estado"
     :headers="['Nome', 'Sigla', 'Ações']"
     :records="$estados"
-    :route="route('admin.estados.create')"
 >
+    @can('create', App\Models\Estado::class)
+    <x-slot name="slotButton">
+        <a class="btn btn-success" href="{{ route('admin.estados.create') }}" role="button">
+            <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> Estado
+        </a>
+    </x-slot>
+    @endcan
+
     @forelse ($estados as $estado)
     <tr>
         <td class="align-middle">
@@ -60,9 +67,11 @@
                 <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal-{{ $estado->id }}">
                     <i class="fa fa-eye"></i> Visualizar
                 </a>
+                @can('update', $estado)
                 <a class="dropdown-item" href="{{ route('admin.estados.edit', $estado) }}">
                     <i class="fas fa-user-edit"></i> Editar
                 </a>
+                @endcan
             </x-admin.action>
         </td>
     </tr>

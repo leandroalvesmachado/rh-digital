@@ -106,12 +106,19 @@
                     <img class="rounded-circle header-profile-user" src="{{ asset('images/users/avatar-1.jpg') }}" alt="Header Avatar">
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
-                    <a class="dropdown-item" href="#">Profile</a>
-                    <a class="dropdown-item" href="#">My Wallet</a>
-                    <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span>Settings</a>
-                    <a class="dropdown-item" href="#">Lock screen</a>
+                    <a class="dropdown-item" href="#">Perfil</a>
+                    <a class="dropdown-item" href="#">{{ Auth::user()->name }}</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-danger" href="#">Logout</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <a
+                            class="dropdown-item text-danger"
+                            href="route('logout')"
+                            onclick="event.preventDefault(); this.closest('form').submit();"
+                        >
+                            Sair
+                        </a>
+                    </form>
                 </div>
             </div>
             <div class="dropdown d-inline-block">

@@ -27,7 +27,7 @@ class UsuarioSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
-                'name' => 'Administrador',
+                'name' => 'Leandro Machado',
                 'email' => 'leandro.machado@cgm.fortaleza.ce.gov.br',
                 'password' => Hash::make('password'),
                 'created_at' => date('Y-m-d H:i:s'),

@@ -40,6 +40,17 @@ class PerfilSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
+            [
+                'id' => Str::orderedUuid(),
+                'codigo' => 3,
+                'nome' => 'Funcionário',
+                'slug' => 'funcionario',
+                'descricao' => 'Funcionário do sistema',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
         ]);
     }
 }

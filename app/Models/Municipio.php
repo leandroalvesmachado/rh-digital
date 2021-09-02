@@ -64,6 +64,13 @@ class Municipio extends Model implements Auditable
         'ativo'
     ];
 
+    /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = ['estado'];
+
     public function isAtivo()
     {
         return $this->ativo == true ? 'Sim' : 'Não';

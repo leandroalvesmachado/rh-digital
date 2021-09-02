@@ -63,4 +63,24 @@ class EstadoRepository extends BaseRepository
             return $e->getMessage();
         }
     }
+
+    public function selectOption()
+    {
+        try {
+            return $this->model
+                ->all()
+                ->sortBy('nome')
+                ->map(function ($estado) {
+                    $estado->descricao = $estado->sigla.' - '.$estado->nome;
+
+                    return $estado;
+                })
+                ->pluck('descricao', 'id')
+                ->prepend('Escolha a opção', '');
+        } catch (Exception $e) {
+            return [
+                '' => $e->getMessage()
+            ];
+        }
+    }
 }
