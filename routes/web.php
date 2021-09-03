@@ -30,6 +30,17 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
         // HOME
         Route::get('/', 'HomeController@index')->name('home.index');
 
+        // CARGOS
+        Route::prefix('cargos')->name('cargos.')->group(function() {
+            Route::get('/', 'CargoController@index')->name('index');
+            Route::get('/cadastro', 'CargoController@create')->name('create');
+            Route::post('/', 'CargoController@store')->name('store');
+            Route::get('/{cargo}', 'CargoController@show')->name('show');
+            Route::get('/{cargo}/edicao', 'CargoController@edit')->name('edit');
+            Route::put('/{cargo}', 'CargoController@update')->name('update');
+            Route::delete('/{cargo}', 'CargoController@destroy')->name('destroy');
+        });
+
         // ESTADOS
         Route::prefix('estados')->name('estados.')->group(function() {
             Route::get('/', 'EstadoController@index')->name('index');
@@ -54,6 +65,17 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
             Route::get('/{municipio}/edicao', 'MunicipioController@edit')->name('edit');
             Route::put('/{municipio}', 'MunicipioController@update')->name('update');
             Route::delete('/{municipio}', 'MunicipioController@destroy')->name('destroy');
+        });
+
+        // ORGAOS
+        Route::prefix('orgaos')->name('orgaos.')->group(function() {
+            Route::get('/', 'OrgaoController@index')->name('index');
+            Route::get('/cadastro', 'OrgaoController@create')->name('create');
+            Route::post('/', 'OrgaoController@store')->name('store');
+            Route::get('/{orgao}', 'OrgaoController@show')->name('show');
+            Route::get('/{orgao}/edicao', 'OrgaoController@edit')->name('edit');
+            Route::put('/{orgao}', 'OrgaoController@update')->name('update');
+            Route::delete('/{orgao}', 'OrgaoController@destroy')->name('destroy');
         });
 
         // SECOES

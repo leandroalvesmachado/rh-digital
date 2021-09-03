@@ -278,6 +278,36 @@ class ArquivoTipoSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Certidão de Acumulação de Cargos do Estado do Ceará',
+                'slug' => 'certidao-de-acumulacao-de-cargos-do-estado-do-ceara',
+                'descricao' => 'Certidão de Acumulação de Cargos do Estado do Ceará',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Certidão de Acumulação de Cargos da PMF',
+                'slug' => 'certidao-de-acumulacao-de-cargos-da-pmf',
+                'descricao' => 'Certidão de Acumulação de Cargos da PMF',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Declaração de não acumulação de Cargo/Emprego/Função',
+                'slug' => 'declaracao-de-nao-acumulacao-de-cargoempregofuncao',
+                'descricao' => 'Declaração de não acumulação de Cargo/Emprego/Função',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
         ]);
 
     }

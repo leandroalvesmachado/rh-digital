@@ -14,6 +14,15 @@
                 </li>
                 <li class="text-uppercase">
                     <a
+                        href="{{ route('admin.cargos.index') }}"
+                        class="waves-effect @if (request()->is('admin/cargos*')) active @endif"
+                    >
+                        <i class="fas fa-portrait text-white" aria-hidden="true"></i>
+                        <span>Cargos</span>
+                    </a>
+                </li>
+                <li class="text-uppercase">
+                    <a
                         href="{{ route('admin.estados.index') }}"
                         class="waves-effect @if (request()->is('admin/estados*')) active @endif"
                     >
@@ -23,7 +32,7 @@
                 </li>
                 <li class="text-uppercase">
                     <a href="widgets.html" class="waves-effect @if (request()->is('admin/funcionarios*')) active @endif">
-                        <i class="fas fa-id-badge text-white" aria-hidden="true"></i>
+                        <i class="fas fa-id-card text-white" aria-hidden="true"></i>
                         <span>Funcionários</span>
                     </a>
                 </li>
@@ -34,15 +43,12 @@
                     </a>
                 </li>
                 <li class="text-uppercase">
-                    <a href="widgets.html" class="waves-effect @if (request()->is('admin/orgaos*')) active @endif">
+                    <a
+                        href="{{ route('admin.orgaos.index') }}"
+                        class="waves-effect @if (request()->is('admin/orgaos*')) active @endif"
+                    >
                         <i class="fa fa-building text-white" aria-hidden="true"></i>
                         <span>Órgãos</span>
-                    </a>
-                </li>
-                <li class="text-uppercase">
-                    <a href="widgets.html" class="waves-effect @if (request()->is('admin/setores*')) active @endif">
-                        <i class="fas fa-warehouse text-white"></i>
-                        <span>Setores</span>
                     </a>
                 </li>
                 <li class="text-uppercase">

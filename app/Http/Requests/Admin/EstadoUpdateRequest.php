@@ -25,7 +25,7 @@ class EstadoUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        $id = $this->route('model') ? $this->route('model') : '';
+        $id = $this->route('estado') ? $this->route('estado')->id : '';
 
         return [
             'nome' => 'required|max:255|unique:estados,nome,'.$id.',id,deleted_at,NULL',
