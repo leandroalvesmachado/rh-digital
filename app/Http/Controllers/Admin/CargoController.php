@@ -9,6 +9,9 @@ use App\Repositories\CargoRepository;
 
 use App\Models\Cargo;
 
+use App\Http\Requests\Admin\CargoStoreRequest;
+use App\Http\Requests\Admin\CargoUpdateRequest;
+
 class CargoController extends Controller
 {
     public function __construct(CargoRepository $cargoRepository)
@@ -51,9 +54,19 @@ class CargoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CargoStoreRequest $request)
     {
-        //
+        $result = $this->cargoRepository->store($request->except(['_token']));
+
+        if ($result === true) {
+            flash('Cargo cadastrado com sucesso!')->success();
+
+            return redirect()->route('admin.cargos.index');
+        }
+
+        flash('Erro ao cadastrar o cargo! '.$result)->error();
+
+        return redirect()->route('admin.cargos.create');
     }
 
     /**
@@ -62,9 +75,11 @@ class CargoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Cargo $cargo)
     {
-        //
+        return view('admin.cargos.show', [
+            'cargo' => $cargo
+        ]);
     }
 
     /**
@@ -73,9 +88,11 @@ class CargoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Cargo $cargo)
     {
-        //
+        return view('admin.cargos.edit', [
+            'cargo' => $cargo
+        ]);
     }
 
     /**
@@ -85,9 +102,21 @@ class CargoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CargoUpdateRequest $request, Cargo $cargo)
     {
-        //
+        $result = $this->cargoRepository->update($cargo, $request->except(['_token']));
+
+        if ($result === true) {
+            flash('Cargo atualizado com sucesso!')->success();
+
+            return redirect()->route('admin.cargos.index');
+        }
+
+        flash('Erro ao atualizar o cargo! '.$result)->error();
+
+        return redirect()->route('admin.cargos.edit', [
+            'cargo' => $cargo
+        ]);
     }
 
     /**

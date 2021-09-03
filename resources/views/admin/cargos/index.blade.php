@@ -27,7 +27,7 @@
 <x-admin.table
     title="Cargos"
     subtitle="Listagem"
-    :headers="['Nome', 'Descrição', 'Carga Horária','Ações']"
+    :headers="['Nome', 'Símbolo', 'Descrição', 'Carga Horária','Ações']"
     :records="$cargos"
 >
     @can('create', App\Models\Cargo::class)
@@ -42,6 +42,9 @@
     <tr>
         <td class="align-middle">
             {{ $cargo->nome }}
+        </td>
+        <td class="align-middle">
+            {{ $cargo->cargoSimbolo->sigla }}
         </td>
         <td class="align-middle">
             {{ $cargo->descricao }}

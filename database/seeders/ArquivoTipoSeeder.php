@@ -308,6 +308,146 @@ class ArquivoTipoSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Declaração de não ter sofrido penalidade disciplinar',
+                'slug' => 'declaracao-de-nao-ter-sofrido-penalidade-disciplinar',
+                'descricao' => 'Declaração de não ter sofrido penalidade disciplinar',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Declaração de não exercício anterior de Cargo/Emprego/Função',
+                'slug' => 'declaracao-de-nao-exercicio-anterior-de-cargoempregofuncao',
+                'descricao' => 'Declaração de não exercício anterior de Cargo/Emprego/Função',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Certidão dos foros criminais da Justiça Estadual',
+                'slug' => 'certidao-dos-foros-criminais-da-justica-estadual',
+                'descricao' => 'Certidão dos foros criminais da Justiça Estadual',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Certidão dos foros criminais da Justiça Federal',
+                'slug' => 'certidao-dos-foros-criminais-da-justica-federal',
+                'descricao' => 'Certidão dos foros criminais da Justiça Federal',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Folha de antecedentes da Polícia Federal',
+                'slug' => 'folha-de-antecedentes-da-policia-federal',
+                'descricao' => 'Folha de antecedentes da Polícia Federal',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Folha de antecedentes da Polícia Estadual',
+                'slug' => 'folha-de-antecedentes-da-policia-estadual',
+                'descricao' => 'Folha de antecedentes da Polícia Estadual',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Laudo Médico do IPM',
+                'slug' => 'laudo-medico-do-ipm',
+                'descricao' => 'Laudo Médico do IPM',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Histórico ou Boletim',
+                'slug' => 'historico-ou-boletim',
+                'descricao' => 'Histórico ou Boletim',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Declaração de matrícula',
+                'slug' => 'declaracao-de-matricula',
+                'descricao' => 'Declaração de matrícula',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Declaração de Bens',
+                'slug' => 'declaracao-de-bens',
+                'descricao' => 'Declaração de Bens',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Declaração do Imposto de Renda',
+                'slug' => 'declaracao-do-imposto-de-renda',
+                'descricao' => 'Declaração do Imposto de Renda',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Comprovante de qualificação cadastral do eSocial',
+                'slug' => 'comprovante-de-qualificacao-cadastral-do-esocial',
+                'descricao' => 'Comprovante de qualificação cadastral do eSocial',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Declaração de Benefício do INSS',
+                'slug' => 'declaracao-de-beneficio-do-inss',
+                'descricao' => 'Declaração de Benefício emitida pelo INSS, no caso de admissão de cargo comissionado',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Apostila',
+                'slug' => 'apostila',
+                'descricao' => 'Apostilamento do servidor',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
         ]);
 
     }

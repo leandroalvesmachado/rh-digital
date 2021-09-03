@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrgaoSetoresTable extends Migration
+class CreateCargoSimbolosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateOrgaoSetoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('orgao_setores', function (Blueprint $table) {
+        Schema::create('cargo_simbolos', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('orgao_id');
-            $table->foreign('orgao_id')->references('id')->on('orgaos')->onUpdate('cascade');
             $table->string('nome');
-            $table->string('slug');
+            $table->string('sigla')->unique();
             $table->string('descricao')->nullable();
-            $table->string('sigla')->nullable();
             $table->boolean('ativo')->default(1);
             $table->uuid('created_by');
             $table->foreign('created_by')->references('id')->on('usuarios')->onUpdate('cascade');
@@ -40,6 +37,6 @@ class CreateOrgaoSetoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orgao_setores');
+        Schema::dropIfExists('cargo_simbolos');
     }
 }

@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 use OwenIt\Auditing\Contracts\Auditable;
 
-class Cargo extends Model implements Auditable
+class CargoSimbolo extends Model implements Auditable
 {
     use HasFactory;
     use SoftDeletes;
@@ -21,7 +21,7 @@ class Cargo extends Model implements Auditable
      *
      * @var string
      */
-    protected $table = 'cargos';
+    protected $table = 'cargo_simbolos';
 
     /**
      * The primary key associated with the table.
@@ -58,11 +58,8 @@ class Cargo extends Model implements Auditable
      */
     protected $fillable = [
         'nome',
-        'slug',
-        'simbolo',
-        'descricao',
-        'carga_horaria',
-        'ativo'
+        'sigla',
+        'descricao'
     ];
 
     public function __construct($attributes = [])
@@ -71,16 +68,5 @@ class Cargo extends Model implements Auditable
         $this->id = Str::orderedUuid();
         $this->created_by = Auth::id();
         $this->updated_by = Auth::id();
-    }
-
-    public function setNomeAttribute($value)
-    {
-        $this->attributes['nome'] = $value;
-        $this->attributes['slug'] = Str::slug($value);
-    }
-
-    public function cargoSimbolo()
-    {
-        return $this->belongsTo(CargoSimbolo::class);
     }
 }

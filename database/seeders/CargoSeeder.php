@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class OrgaoSetorSeeder extends Seeder
+class CargoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,15 +16,20 @@ class OrgaoSetorSeeder extends Seeder
     public function run()
     {
         $usuario = DB::table('usuarios')->get()->first();
-        $orgao = DB::table('orgaos')->where('sigla', 'CGM')->get()->first();
+        $cargoSimboloS1 = DB::table('cargo_simbolos')->where('sigla', 'S-1')->get()->first();
+        $cargoSimboloS2 = DB::table('cargo_simbolos')->where('sigla', 'S-2')->get()->first();
+        $cargoSimboloDg1 = DB::table('cargo_simbolos')->where('sigla', 'DG-1')->get()->first();
+        $cargoSimboloDns1 = DB::table('cargo_simbolos')->where('sigla', 'DNS-1')->get()->first();
+        $cargoSimboloDns2 = DB::table('cargo_simbolos')->where('sigla', 'DNS-2')->get()->first();
+        $cargoSimboloDns3 = DB::table('cargo_simbolos')->where('sigla', 'DNS-3')->get()->first();
 
-        DB::table('orgao_setores')->insert([
+        DB::table('cargos')->insert([
             [
                 'id' => Str::orderedUuid(),
-                'orgao_id' => $orgao->id,
+                'cargo_simbolo_id' => $cargoSimboloS1->id,
                 'nome' => 'Secretário',
                 'slug' => 'secretario',
-                'sigla' => '',
+                'descricao' => '',
                 'created_by' => $usuario->id,
                 'updated_by' => $usuario->id,
                 'created_at' => date('Y-m-d H:i:s'),
@@ -32,10 +37,10 @@ class OrgaoSetorSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
-                'orgao_id' => $orgao->id,
+                'cargo_simbolo_id' => $cargoSimboloS2->id,
                 'nome' => 'Secretário Executivo',
                 'slug' => 'secretario-executivo',
-                'sigla' => '',
+                'descricao' => '',
                 'created_by' => $usuario->id,
                 'updated_by' => $usuario->id,
                 'created_at' => date('Y-m-d H:i:s'),
@@ -43,10 +48,10 @@ class OrgaoSetorSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
-                'orgao_id' => $orgao->id,
-                'nome' => 'Assessoria Jurídica',
-                'slug' => 'assessoria-juridica',
-                'sigla' => '',
+                'cargo_simbolo_id' => $cargoSimboloDns3->id,
+                'nome' => 'Articulador',
+                'slug' => 'articulador',
+                'descricao' => '',
                 'created_by' => $usuario->id,
                 'updated_by' => $usuario->id,
                 'created_at' => date('Y-m-d H:i:s'),
@@ -54,10 +59,10 @@ class OrgaoSetorSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
-                'orgao_id' => $orgao->id,
-                'nome' => 'Assessoria de Planejamento e Desenvolvimento Institucional',
-                'slug' => 'assessoria-de-planejamento-e-desenvolvimento-institucional',
-                'sigla' => '',
+                'cargo_simbolo_id' => $cargoSimboloDns1->id,
+                'nome' => 'Coordenador',
+                'slug' => 'coordenador',
+                'descricao' => '',
                 'created_by' => $usuario->id,
                 'updated_by' => $usuario->id,
                 'created_at' => date('Y-m-d H:i:s'),
@@ -65,10 +70,10 @@ class OrgaoSetorSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
-                'orgao_id' => $orgao->id,
-                'nome' => 'Assessoria de Controle Interno e Ouvidoria',
-                'slug' => 'assessoria-de-controle-interno-e-ouvidoria',
-                'sigla' => '',
+                'cargo_simbolo_id' => $cargoSimboloDns2->id,
+                'nome' => 'Assessor Técnico',
+                'slug' => 'assessor-tecnico',
+                'descricao' => '',
                 'created_by' => $usuario->id,
                 'updated_by' => $usuario->id,
                 'created_at' => date('Y-m-d H:i:s'),
@@ -76,10 +81,10 @@ class OrgaoSetorSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
-                'orgao_id' => $orgao->id,
-                'nome' => 'Ouvidoria Geral',
-                'slug' => 'ouvidoria-geral',
-                'sigla' => '',
+                'cargo_simbolo_id' => $cargoSimboloDg1->id,
+                'nome' => 'Ouvidor Geral',
+                'slug' => 'ouvidor-geral',
+                'descricao' => '',
                 'created_by' => $usuario->id,
                 'updated_by' => $usuario->id,
                 'created_at' => date('Y-m-d H:i:s'),
@@ -87,10 +92,10 @@ class OrgaoSetorSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
-                'orgao_id' => $orgao->id,
-                'nome' => 'Corregedoria Geral',
-                'slug' => 'corregedoria-geral',
-                'sigla' => '',
+                'cargo_simbolo_id' => $cargoSimboloDns1->id,
+                'nome' => 'Corregedor Geral',
+                'slug' => 'corregedor-geral',
+                'descricao' => '',
                 'created_by' => $usuario->id,
                 'updated_by' => $usuario->id,
                 'created_at' => date('Y-m-d H:i:s'),
@@ -98,10 +103,10 @@ class OrgaoSetorSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
-                'orgao_id' => $orgao->id,
-                'nome' => 'Coordenadoria Geral de Controle Interno',
-                'slug' => 'coordenadoria-geral-de-controle-interno',
-                'sigla' => '',
+                'cargo_simbolo_id' => $cargoSimboloDg1->id,
+                'nome' => 'Coordenador Executivo',
+                'slug' => 'coordenador-executivo',
+                'descricao' => '',
                 'created_by' => $usuario->id,
                 'updated_by' => $usuario->id,
                 'created_at' => date('Y-m-d H:i:s'),
@@ -109,32 +114,10 @@ class OrgaoSetorSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
-                'orgao_id' => $orgao->id,
-                'nome' => 'Coordenadoria de Auditoria',
-                'slug' => 'coordenadoria-de-auditoria',
-                'sigla' => '',
-                'created_by' => $usuario->id,
-                'updated_by' => $usuario->id,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-            ],
-            [
-                'id' => Str::orderedUuid(),
-                'orgao_id' => $orgao->id,
-                'nome' => 'Coordenadoria de Transparência e Intridade',
-                'slug' => 'coordenadoria-de-transparencia-e-integridade',
-                'sigla' => '',
-                'created_by' => $usuario->id,
-                'updated_by' => $usuario->id,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-            ],
-            [
-                'id' => Str::orderedUuid(),
-                'orgao_id' => $orgao->id,
-                'nome' => 'Coordenadoria Administrativo-Financeiro',
-                'slug' => 'coordenadoria-administrativo-financeiro',
-                'sigla' => '',
+                'cargo_simbolo_id' => $cargoSimboloDns2->id,
+                'nome' => 'Gerente',
+                'slug' => 'gerente',
+                'descricao' => '',
                 'created_by' => $usuario->id,
                 'updated_by' => $usuario->id,
                 'created_at' => date('Y-m-d H:i:s'),

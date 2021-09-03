@@ -23,7 +23,9 @@ class DatabaseSeeder extends Seeder
             SecaoSeeder::class,
             ArquivoTipoSeeder::class,
             PerfilSeeder::class,
-            UsuarioPerfilSeeder::class
+            UsuarioPerfilSeeder::class,
+            CargoSimboloSeeder::class,
+            CargoSeeder::class
         ]);
     }
 }

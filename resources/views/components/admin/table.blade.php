@@ -20,7 +20,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-hover table-striped table-bordered">
+                    <table class="table table-hover table-striped table-bordered" style="min-height: 150px;">
                         <thead class="text-center text-uppercase">
                             @if (isset($headers))
                             <tr>

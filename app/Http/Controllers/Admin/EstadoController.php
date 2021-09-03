@@ -105,7 +105,6 @@ class EstadoController extends Controller
     public function update(EstadoUpdateRequest $request, Estado $estado)
     {
         $result = $this->estadoRepository->update($estado, $request->except(['_token']));
-        dd($result);
 
         if ($result === true) {
             flash('Estado atualizado com sucesso!')->success();

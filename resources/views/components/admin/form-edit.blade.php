@@ -1,6 +1,13 @@
 <div class="row">
     <div class="col-12">
-        {!! Form::model($model, ['url' => [isset($action) ? $action : '#', $model], 'method' => 'put', 'class' => '', 'files' => 'true']) !!}
+        {!!
+            Form::model($model, [
+                'url' => [isset($action) ? $action : '#', $model],
+                'method' => 'put',
+                'class' => '',
+                'files' => 'true'
+            ])
+        !!}
             <div class="card">
                 <div class="card-header bg-transparent">
                     <h5 class="card-title text-teal text-uppercase fw-bold">

@@ -15,10 +15,12 @@ class CreateCargosTable extends Migration
     {
         Schema::create('cargos', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->uuid('cargo_simbolo_id');
+            $table->foreign('cargo_simbolo_id')->references('id')->on('cargo_simbolos')->onUpdate('cascade');
             $table->string('nome');
             $table->string('slug');
-            $table->string('descricao');
-            $table->double('carga_horaria', 8, 2);
+            $table->string('descricao')->nullable();
+            $table->double('carga_horaria', 8, 2)->nullable();
             $table->boolean('ativo')->default(1);
             $table->uuid('created_by');
             $table->foreign('created_by')->references('id')->on('usuarios')->onUpdate('cascade');
