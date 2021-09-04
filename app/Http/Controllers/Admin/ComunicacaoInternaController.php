@@ -5,21 +5,16 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Repositories\OrgaoRepository;
-
-use App\Models\Orgao;
-
-class OrgaoController extends Controller
+class ComunicacaoInternaController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct(OrgaoRepository $orgaoRepository)
+    public function index()
     {
-        $this->authorizeResource(Orgao::class, 'orgao');
-        $this->orgaoRepository = $orgaoRepository;
+        //
     }
 
     /**
@@ -27,17 +22,9 @@ class OrgaoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function create()
     {
-        if (count($request->all()) > 0) {
-            $orgaos = $this->orgaoRepository->paginateWhere(10, 'nome', 'ASC', $request->except(['_token', 'page']));
-        } else {
-            $orgaos = $this->orgaoRepository->paginate(10, 'nome');
-        }
-
-        return view('admin.orgaos.index', [
-            'orgaos' => $orgaos
-        ]);
+        //
     }
 
     /**
@@ -57,11 +44,9 @@ class OrgaoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Orgao $orgao)
+    public function show($id)
     {
-        return view('admin.orgaos.show', [
-            'orgao' => $orgao
-        ]);
+        //
     }
 
     /**

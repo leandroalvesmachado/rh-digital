@@ -41,6 +41,11 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
             Route::delete('/{cargo}', 'CargoController@destroy')->name('destroy');
         });
 
+        // COMUNICACOES INTERNAS
+        Route::prefix('comunicacoes-internas')->name('comunicacoes-internas.')->group(function() {
+            Route::get('/', 'ComunicacaoInternaController@index')->name('index');
+        });
+
         // ESTADOS
         Route::prefix('estados')->name('estados.')->group(function() {
             Route::get('/', 'EstadoController@index')->name('index');
@@ -82,6 +87,17 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
         Route::prefix('secoes')->name('secoes.')->group(function() {
             Route::get('/', 'SecaoController@index')->name('index');
             Route::get('/{secao}', 'SecaoController@show')->name('show');
+        });
+
+        // SETORES
+        Route::prefix('orgaos/{orgao}/setores')->name('orgaos.setores.')->group(function() {
+            Route::get('/', 'SetorController@index')->name('index');
+            Route::get('/cadastro', 'SetorController@create')->name('create');
+            Route::post('/', 'SetorController@store')->name('store');
+            Route::get('/{setor}', 'SetorController@show')->name('show');
+            Route::get('/{setor}/edicao', 'SetorController@edit')->name('edit');
+            Route::put('/{setor}', 'SetorController@update')->name('update');
+            Route::delete('/{setor}', 'SetorController@destroy')->name('destroy');
         });
     });
 });

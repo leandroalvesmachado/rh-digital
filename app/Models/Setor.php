@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 use OwenIt\Auditing\Contracts\Auditable;
 
-class Orgao extends Model implements Auditable
+class Setor extends Model implements Auditable
 {
     use HasFactory;
     use SoftDeletes;
@@ -21,7 +21,7 @@ class Orgao extends Model implements Auditable
      *
      * @var string
      */
-    protected $table = 'orgaos';
+    protected $table = 'setores';
 
     /**
      * The primary key associated with the table.
@@ -57,10 +57,11 @@ class Orgao extends Model implements Auditable
      * @var array
      */
     protected $fillable = [
+        'orgao_id',
         'nome',
         'slug',
         'descricao',
-        'carga_horaria',
+        'sigla',
         'ativo'
     ];
 
@@ -78,18 +79,8 @@ class Orgao extends Model implements Auditable
         $this->attributes['slug'] = Str::slug($value);
     }
 
-    public function estado()
+    public function orgao()
     {
-        return $this->belongsTo(Estado::class);
-    }
-
-    public function municipio()
-    {
-        return $this->belongsTo(Municipio::class);
-    }
-
-    public function setores()
-    {
-        return $this->hasMany(Setor::class)->orderBy('nome', 'ASC');
+        return $this->belongsTo(Orgao::class);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrgaoSetoresTable extends Migration
+class CreateCelulasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateOrgaoSetoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('orgao_setores', function (Blueprint $table) {
+        Schema::create('celulas', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('orgao_id');
-            $table->foreign('orgao_id')->references('id')->on('orgaos')->onUpdate('cascade');
+            $table->uuid('setor_id');
+            $table->foreign('setor_id')->references('id')->on('setores')->onUpdate('cascade');
             $table->string('nome');
             $table->string('slug');
             $table->string('descricao')->nullable();
@@ -40,6 +40,6 @@ class CreateOrgaoSetoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orgao_setores');
+        Schema::dropIfExists('celulas');
     }
 }

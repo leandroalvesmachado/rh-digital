@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class OrgaoSetorSeeder extends Seeder
+class SetorSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,7 +18,7 @@ class OrgaoSetorSeeder extends Seeder
         $usuario = DB::table('usuarios')->get()->first();
         $orgao = DB::table('orgaos')->where('sigla', 'CGM')->get()->first();
 
-        DB::table('orgao_setores')->insert([
+        DB::table('setores')->insert([
             [
                 'id' => Str::orderedUuid(),
                 'orgao_id' => $orgao->id,
@@ -121,7 +121,7 @@ class OrgaoSetorSeeder extends Seeder
             [
                 'id' => Str::orderedUuid(),
                 'orgao_id' => $orgao->id,
-                'nome' => 'Coordenadoria de Transparência e Intridade',
+                'nome' => 'Coordenadoria de Transparência e Integridade',
                 'slug' => 'coordenadoria-de-transparencia-e-integridade',
                 'sigla' => '',
                 'created_by' => $usuario->id,
