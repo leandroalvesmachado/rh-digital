@@ -1,6 +1,7 @@
 @props([
     'target' => '',
-    'title' => ''
+    'title' => '',
+    'message' => ''
 ])
 
 <div
@@ -18,6 +19,11 @@
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{ $message }}
+                        </div>
+                    </div>
                     {{ $slot }}
                 </div>
             </div>

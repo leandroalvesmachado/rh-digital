@@ -10,18 +10,29 @@ class ModalDestroy extends Component
     public $target;
     public $object;
     public $size;
+    public $message;
+    public $action;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title = null, $target = null, $object = null, $size = null)
+    public function __construct(
+        $title = null,
+        $target = null,
+        $object = null,
+        $size = null,
+        $message = null,
+        $action = null
+    )
     {
         $this->title = $title;
         $this->target = $target;
         $this->object = $object;
         $this->size = $size;
+        $this->message = $message;
+        $this->action = $action;
     }
 
     /**

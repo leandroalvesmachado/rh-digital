@@ -9,6 +9,7 @@ class Show extends Component
     public $title;
     public $subtitle;
     public $routeBack;
+    public $object;
 
     /**
      * Create a new component instance.
@@ -18,12 +19,14 @@ class Show extends Component
     public function __construct(
         $title = null,
         $subtitle = null,
-        $routeBack = null
+        $routeBack = null,
+        $object = null
     )
     {
         $this->title = $title;
         $this->subtitle = $subtitle;
         $this->routeBack = $routeBack;
+        $this->object = $object;
     }
 
     /**

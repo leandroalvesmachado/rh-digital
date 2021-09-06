@@ -19,12 +19,7 @@
     </div>
 </x-admin.show>
 
-<x-admin.modal-destroy
-    title="Cargo: {{ $cargo->nome }}"
-    :target="$cargo->id"
-    :object="$cargo"
-    size="lg"
->
+<x-admin.modal-destroy>
 </x-admin.modal-destroy>
 
 @endsection
