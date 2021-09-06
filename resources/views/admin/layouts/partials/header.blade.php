@@ -3,20 +3,20 @@
         <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box">
-                <a href="index-2.html" class="logo logo-dark">
+                <a href="{{ route('admin.home.index') }}" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="{{ asset('images/logo.png') }}" alt="" height="22">
+                        <img src="{{ asset('images/logo-pmf.png') }}" alt="" height="22">
                     </span>
                     <span class="logo-lg">
-                        <img src="{{ asset('images/logo-dark.png') }}" alt="" height="17">
+                        <img src="{{ asset('images/logo-pmf.png') }}" alt="" height="17">
                     </span>
                 </a>
-                <a href="index-2.html" class="logo logo-light">
+                <a href="{{ route('admin.home.index') }}" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="{{ asset('images/logo-light.png') }}" alt="" height="22">
+                        <img src="{{ asset('images/logo-pmf.png') }}" alt="" height="42">
                     </span>
                     <span class="logo-lg">
-                        <img src="{{ asset('images/logo-light.png') }}" alt="" height="36">
+                        <img src="{{ asset('images/logo-pmf.png') }}" alt="" height="56">
                     </span>
                 </a>
             </div>
@@ -30,11 +30,11 @@
         <div class="search-wrap" id="search-wrap">
         </div>
         <div class="d-flex">
-            <div class="dropdown d-none d-lg-inline-block me-2">
+            <!-- <div class="dropdown d-none d-lg-inline-block me-2">
                 <button type="button" class="btn header-item toggle-search noti-icon waves-effect" data-target="#search-wrap">
                     <i class="mdi mdi-magnify"></i>
                 </button>
-            </div>
+            </div> -->
             <div class="dropdown d-none d-lg-inline-block me-2">
                 <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
                     <i class="mdi mdi-fullscreen"></i>

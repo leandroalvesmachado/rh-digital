@@ -25,7 +25,8 @@ class CargoStoreRequest extends FormRequest
     {
         return [
             'nome' => 'required|max:255|unique:cargos,nome,NULL,id,deleted_at,NULL',
-            'carga_horaria' => 'required|max:5',
+            'cargo_simbolo_id' => 'required',
+            'carga_horaria' => 'nullable',
             'descricao' => 'required|max:255'
         ];
     }
@@ -50,7 +51,8 @@ class CargoStoreRequest extends FormRequest
         return [
             'nome' => 'Nome',
             'carga_horaria' => 'Carga Horária',
-            'descricao' => 'Descrição'
+            'descricao' => 'Descrição',
+            'cargo_simbolo_id' => 'Símbolo'
         ];
     }
 }

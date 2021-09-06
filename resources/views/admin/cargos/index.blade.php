@@ -79,17 +79,25 @@
         size="lg"
     >
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <p><strong>Nome:</strong></p>
                 <p>{{ $cargo->nome }}</p>
             </div>
-            <div class="col-md-4">
-                <p><strong>Descrição:</strong></p>
-                <p>{{ $cargo->sigla }}</p>
+            <div class="col-md-6">
+                <p><strong>Símbolo:</strong></p>
+                <p>{{ $cargo->cargoSimbolo->sigla }} ({{ $cargo->cargoSimbolo->nome }})</p>
             </div>
+        </div>
+        <div class="row">
             <div class="col-md-4">
                 <p><strong>Carga Horária:</strong></p>
                 <p>{{ $cargo->carga_horaria }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p><strong>Descrição:</strong></p>
+                <p>{{ $cargo->sigla }}</p>
             </div>
         </div>
     </x-admin.modal>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Repositories\CargoRepository;
+use App\Repositories\CargoSimboloRepository;
 
 use App\Models\Cargo;
 
@@ -14,10 +15,14 @@ use App\Http\Requests\Admin\CargoUpdateRequest;
 
 class CargoController extends Controller
 {
-    public function __construct(CargoRepository $cargoRepository)
+    public function __construct(
+        CargoRepository $cargoRepository,
+        CargoSimboloRepository $cargoSimboloRepository
+    )
     {
         $this->authorizeResource(Cargo::class, 'cargo');
         $this->cargoRepository = $cargoRepository;
+        $this->cargoSimboloRepository = $cargoSimboloRepository;
     }
 
     /**
@@ -45,7 +50,9 @@ class CargoController extends Controller
      */
     public function create()
     {
-        return view('admin.cargos.create');
+        return view('admin.cargos.create', [
+            'simbolos' => $this->cargoSimboloRepository->selectOption()
+        ]);
     }
 
     /**
@@ -91,7 +98,8 @@ class CargoController extends Controller
     public function edit(Cargo $cargo)
     {
         return view('admin.cargos.edit', [
-            'cargo' => $cargo
+            'cargo' => $cargo,
+            'simbolos' => $this->cargoSimboloRepository->selectOption()
         ]);
     }
 

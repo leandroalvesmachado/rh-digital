@@ -56,6 +56,13 @@
             </a>
         </div>
     </div>
+    <div class="mb-0 row">
+        <div class="col-12 mt-4 text-center">
+            <a href="{{ route('register') }}" class="text-muted">
+                <i class="mdi mdi-lock"></i> Ainda não possui acesso? Cadastre-se aqui
+            </a>
+        </div>
+    </div>
 {!! Form::close() !!}
 
 @endsection

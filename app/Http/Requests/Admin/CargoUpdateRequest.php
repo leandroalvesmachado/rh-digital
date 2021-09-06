@@ -13,7 +13,7 @@ class CargoUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,38 @@ class CargoUpdateRequest extends FormRequest
      */
     public function rules()
     {
+        $id = $this->route('cargo') ? $this->route('cargo')->id : '';
+
         return [
-            //
+            'nome' => 'required|max:255|unique:cargos,nome,'.$id.',id,deleted_at,NULL',
+            'cargo_simbolo_id' => 'required',
+            'carga_horaria' => 'nullable',
+            'descricao' => 'required|max:255'
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [];
+    }
+
+    /**
+     * Get custom attributes for validator errors.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            'nome' => 'Nome',
+            'carga_horaria' => 'Carga Horária',
+            'descricao' => 'Descrição',
+            'cargo_simbolo_id' => 'Símbolo'
         ];
     }
 }

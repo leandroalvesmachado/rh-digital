@@ -46,7 +46,7 @@
                             <div class="text-center mt-4">
                                 <div class="mb-3">
                                     <a href="{{ route('login') }}">
-                                        <img src="{{ asset('images/logo-cgm.png') }}" width="100%" alt="logo">
+                                        <img src="{{ asset('images/logo-cgm.png') }}" width="80%" alt="logo">
                                     </a>
                                 </div>
                             </div>

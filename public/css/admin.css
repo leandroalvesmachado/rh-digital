@@ -79,6 +79,12 @@
     background-color: #2E8B57;
  }
 
+ #sidebar-menu .menu-title {
+    font-size: 14.5px !important;
+    color: white !important;
+    font-weight: bold !important;
+ }
+
 .footer {
     position: fixed !important;
     bottom: 0 !important;
