@@ -12,6 +12,7 @@ use App\Models\Cargo;
 
 use App\Http\Requests\Admin\CargoStoreRequest;
 use App\Http\Requests\Admin\CargoUpdateRequest;
+use App\Http\Requests\Admin\CargoDestroyRequest;
 
 class CargoController extends Controller
 {
@@ -133,8 +134,20 @@ class CargoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(CargoDestroyRequest $request, Cargo $cargo)
     {
-        //
+        $result = $this->cargoRepository->destroy($cargo);
+
+        if ($result === true) {
+            flash('Cargo apagado com sucesso!')->success();
+
+            return redirect()->route('admin.cargos.index');
+        }
+
+        flash('Erro ao deletar o cargo! '.$result)->error();
+
+        return redirect()->route('admin.cargos.show', [
+            'cargo' => $cargo
+        ]);
     }
 }

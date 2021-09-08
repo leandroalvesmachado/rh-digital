@@ -73,6 +73,20 @@ class Cargo extends Model implements Auditable
         $this->updated_by = Auth::id();
     }
 
+    public function fill(array $attributes)
+    {
+        parent::fill($attributes);
+        $this->updated_by = Auth::id();
+    }
+
+    public function delete()
+    {
+        $this->deleted_by = Auth::id();
+        $this->save();
+
+        parent::delete();
+    }
+
     public function setNomeAttribute($value)
     {
         $this->attributes['nome'] = $value;

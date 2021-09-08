@@ -1,7 +1,10 @@
 @props([
-    'target' => '',
     'title' => '',
-    'message' => ''
+    'target' => '',
+    'object' => '',
+    'size' => '',
+    'message' => '',
+    'action' => '#'
 ])
 
 <div
@@ -19,16 +22,34 @@
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <div class="row">
+                    <div class="row text-danger text-center">
                         <div class="col-md-12">
-                            {{ $message }}
+                            <h5>{{ $message }}</h5>
                         </div>
                     </div>
                     {{ $slot }}
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <div class="container-fluid">
+                    <form method="post" action="{{ $action }}">
+                        <input type="hidden" name="id" value="{{ $object->id }}">
+                        <div class="row">
+                            <div class="col-md-6 d-grid">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fas fa-check-circle"></i> Sim
+                                </button>
+                            </div>
+                            <div class="col-md-6 d-grid">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    <i class="fas fa-times-circle"></i> Não
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

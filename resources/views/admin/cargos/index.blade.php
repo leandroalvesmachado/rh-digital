@@ -97,7 +97,7 @@
         <div class="row">
             <div class="col-md-12">
                 <p><strong>Descrição:</strong></p>
-                <p>{{ $cargo->sigla }}</p>
+                <p>{{ $cargo->descricao }}</p>
             </div>
         </div>
     </x-admin.modal>
