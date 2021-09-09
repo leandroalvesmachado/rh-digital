@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EstadoStoreRequest extends FormRequest
+class UpdateCargoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,10 +23,13 @@ class EstadoStoreRequest extends FormRequest
      */
     public function rules()
     {
+        $id = $this->route('cargo') ? $this->route('cargo')->id : '';
+
         return [
-            'nome' => 'required|max:255|unique:estados,nome,NULL,id,deleted_at,NULL',
-            'sigla' => 'required|max:255',
-            'codigo_ibge' => 'nullable|max:255'
+            'nome' => 'required|max:255|unique:cargos,nome,'.$id.',id,deleted_at,NULL',
+            'cargo_simbolo_id' => 'required',
+            'carga_horaria' => 'nullable',
+            'descricao' => 'required|max:255'
         ];
     }
 
@@ -49,8 +52,9 @@ class EstadoStoreRequest extends FormRequest
     {
         return [
             'nome' => 'Nome',
-            'sigla' => 'Sigla',
-            'codigo_ibge' => 'Código IBGE'
+            'carga_horaria' => 'Carga Horária',
+            'descricao' => 'Descrição',
+            'cargo_simbolo_id' => 'Símbolo'
         ];
     }
 }

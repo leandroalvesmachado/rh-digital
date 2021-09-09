@@ -7,11 +7,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+
 use App\Models\Perfil;
 
-class Usuario extends Authenticatable
+use OwenIt\Auditing\Contracts\Auditable;
+
+class Usuario extends Authenticatable implements Auditable
 {
     use HasFactory, Notifiable;
+    use SoftDeletes;
+    use \OwenIt\Auditing\Auditable;
 
     /**
      * The table associated with the model.
@@ -78,18 +86,34 @@ class Usuario extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function __construct($attributes = [])
+    {
+        parent::__construct($attributes);
+        $this->id = Str::orderedUuid();
+    }
+
     public function isAdmin()
     {
         return $this->perfis->contains('codigo', Perfil::ADMIN);
     }
 
-    public function isModerador()
+    public function isRh()
     {
-        return $this->perfis->contains('codigo', Perfil::MODERADOR);
+        return $this->perfis->contains('codigo', Perfil::RH);
+    }
+
+    public function isFuncionario()
+    {
+        return $this->perfis->contains('codigo', Perfil::FUNCIONARIO);
     }
 
     public function perfis()
     {
         return $this->belongsToMany(Perfil::class, 'usuario_perfis');
+    }
+
+    public function usuarioPerfis()
+    {
+        return $this->hasMany(UsuarioPerfil::class);
     }
 }

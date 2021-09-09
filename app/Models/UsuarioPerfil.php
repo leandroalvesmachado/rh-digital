@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 use OwenIt\Auditing\Contracts\Auditable;
 
@@ -48,4 +49,22 @@ class UsuarioPerfil extends Model implements Auditable
      * @var bool
      */
     public $timestamps = true;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'usuario_id',
+        'perfil_id',
+        'created_by',
+        'updated_by'
+    ];
+
+    public function __construct($attributes = [])
+    {
+        parent::__construct($attributes);
+        $this->id = Str::orderedUuid();
+    }
 }

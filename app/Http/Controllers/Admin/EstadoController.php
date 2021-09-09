@@ -9,8 +9,8 @@ use App\Repositories\EstadoRepository;
 
 use App\Models\Estado;
 
-use App\Http\Requests\Admin\EstadoStoreRequest;
-use App\Http\Requests\Admin\EstadoUpdateRequest;
+use App\Http\Requests\Admin\StoreEstadoRequest;
+use App\Http\Requests\Admin\UpdateEstadoRequest;
 
 class EstadoController extends Controller
 {
@@ -54,7 +54,7 @@ class EstadoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(EstadoStoreRequest $request)
+    public function store(StoreEstadoRequest $request)
     {
         $result = $this->estadoRepository->store($request->except(['_token']));
 
@@ -102,7 +102,7 @@ class EstadoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EstadoUpdateRequest $request, Estado $estado)
+    public function update(UpdateEstadoRequest $request, Estado $estado)
     {
         $result = $this->estadoRepository->update($estado, $request->except(['_token']));
 

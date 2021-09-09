@@ -50,5 +50,6 @@ class Perfil extends Model implements Auditable
     public $timestamps = true;
 
     const ADMIN = 1;
-    const MODERADOR = 2;
+    const RH = 2;
+    const FUNCIONARIO = 3;
 }

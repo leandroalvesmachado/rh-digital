@@ -10,9 +10,9 @@ use App\Repositories\CargoSimboloRepository;
 
 use App\Models\Cargo;
 
-use App\Http\Requests\Admin\CargoStoreRequest;
-use App\Http\Requests\Admin\CargoUpdateRequest;
-use App\Http\Requests\Admin\CargoDestroyRequest;
+use App\Http\Requests\Admin\StoreCargoRequest;
+use App\Http\Requests\Admin\UpdateCargoRequest;
+use App\Http\Requests\Admin\DestroyCargoRequest;
 
 class CargoController extends Controller
 {
@@ -62,7 +62,7 @@ class CargoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CargoStoreRequest $request)
+    public function store(StoreCargoRequest $request)
     {
         $result = $this->cargoRepository->store($request->except(['_token']));
 
@@ -111,7 +111,7 @@ class CargoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CargoUpdateRequest $request, Cargo $cargo)
+    public function update(UpdateCargoRequest $request, Cargo $cargo)
     {
         $result = $this->cargoRepository->update($cargo, $request->except(['_token']));
 
@@ -134,7 +134,7 @@ class CargoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CargoDestroyRequest $request, Cargo $cargo)
+    public function destroy(DestroyCargoRequest $request, Cargo $cargo)
     {
         $result = $this->cargoRepository->destroy($cargo);
 
