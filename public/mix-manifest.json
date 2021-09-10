@@ -5,6 +5,8 @@
     "/js/login/login.js": "/js/login/login.js",
     "/css/admin.css": "/css/admin.css",
     "/js/admin.js": "/js/admin.js",
+    "/css/funcionario.css": "/css/funcionario.css",
+    "/js/funcionario.js": "/js/funcionario.js",
     "/fonts/dripicons-v2.eot": "/fonts/dripicons-v2.eot",
     "/fonts/dripicons-v2.svg": "/fonts/dripicons-v2.svg",
     "/fonts/dripicons-v2.ttf": "/fonts/dripicons-v2.ttf",

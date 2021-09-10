@@ -26,6 +26,7 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], function() {
+    
     // ADMIN
     Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
 
@@ -43,11 +44,6 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
             Route::delete('/{cargo}', 'CargoController@destroy')->name('destroy');
         });
 
-        // COMUNICACOES INTERNAS
-        Route::prefix('comunicacoes-internas')->name('comunicacoes-internas.')->group(function() {
-            Route::get('/', 'ComunicacaoInternaController@index')->name('index');
-        });
-
         // ESTADOS
         Route::prefix('estados')->name('estados.')->group(function() {
             Route::get('/', 'EstadoController@index')->name('index');
@@ -61,6 +57,13 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
 
         // FUNCIONARIOS
         Route::prefix('funcionarios')->name('funcionarios.')->group(function() {
+            Route::get('/', 'FuncionarioController@index')->name('index');
+            Route::get('/cadastro', 'FuncionarioController@create')->name('create');
+            Route::post('/', 'FuncionarioController@store')->name('store');
+            Route::get('/{funcionario}', 'FuncionarioController@show')->name('show');
+            Route::get('/{funcionario}/edicao', 'FuncionarioController@edit')->name('edit');
+            Route::put('/{funcionario}', 'FuncionarioController@update')->name('update');
+            Route::delete('/{funcionario}', 'FuncionarioController@destroy')->name('destroy');
         });
 
         // MUNICIPIOS
@@ -100,6 +103,17 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
             Route::get('/{setor}/edicao', 'SetorController@edit')->name('edit');
             Route::put('/{setor}', 'SetorController@update')->name('update');
             Route::delete('/{setor}', 'SetorController@destroy')->name('destroy');
+        });
+    });
+
+    // FUNCIONARIO
+    Route::prefix('funcionario')->name('funcionario.')->namespace('Funcionario')->group(function() {
+        // HOME
+        Route::get('/', 'HomeController@index')->name('home.index');
+
+        // COMUNICACOES INTERNAS
+        Route::prefix('comunicacoes-internas')->name('comunicacoes-internas.')->group(function() {
+            Route::get('/', 'ComunicacaoInternaController@index')->name('index');
         });
     });
 });

@@ -23,15 +23,6 @@
                 </li>
                 <li class="text-uppercase">
                     <a
-                        href="{{ route('admin.comunicacoes-internas.index') }}"
-                        class="waves-effect @if (request()->is('admin/comunicacao-interna*')) active @endif"
-                    >
-                        <i class="fas fa-file-alt text-white" aria-hidden="true"></i>
-                        <span>CI</span>
-                    </a>
-                </li>
-                <li class="text-uppercase">
-                    <a
                         href="{{ route('admin.estados.index') }}"
                         class="waves-effect @if (request()->is('admin/estados*')) active @endif"
                     >
@@ -40,7 +31,10 @@
                     </a>
                 </li>
                 <li class="text-uppercase">
-                    <a href="widgets.html" class="waves-effect @if (request()->is('admin/funcionarios*')) active @endif">
+                    <a
+                        href="{{ route('admin.funcionarios.index') }}"
+                        class="waves-effect @if (request()->is('admin/funcionarios*')) active @endif"
+                    >
                         <i class="fas fa-id-card text-white" aria-hidden="true"></i>
                         <span>Funcionários</span>
                     </a>

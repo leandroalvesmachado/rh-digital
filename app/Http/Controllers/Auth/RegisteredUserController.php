@@ -60,10 +60,20 @@ class RegisteredUserController extends Controller
 
         $userProfile->save();
 
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password
+        ];
+
         event(new Registered($user));
 
-        Auth::login($user);
+        // Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        if (Auth::attempt($credentials)) {
+            // return redirect(RouteServiceProvider::HOME);
+            return redirect()->route('funcionario.home.index');
+        }
+
+        return redirect()->route('login');
     }
 }

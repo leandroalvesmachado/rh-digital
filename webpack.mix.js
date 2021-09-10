@@ -43,5 +43,19 @@ mix.js('resources/js/app.js', 'public/js')
         'resources/theme/assets/libs/node-waves/waves.min.js',
         'resources/theme/assets/js/app.js'
     ], 'public/js/admin.js')
+    .styles([
+        'resources/theme/assets/css/bootstrap.min.css',
+        'resources/theme/assets/css/icons.min.css',
+        'resources/theme/assets/css/app.min.css',
+        'resources/css/style.css'
+    ], 'public/css/funcionario.css')
+    .scripts([
+        'resources/theme/assets/libs/jquery/jquery.min.js',
+        'resources/theme/assets/libs/bootstrap/js/bootstrap.bundle.min.js',
+        'resources/theme/assets/libs/metismenu/metisMenu.min.js',
+        'resources/theme/assets/libs/simplebar/simplebar.min.js',
+        'resources/theme/assets/libs/node-waves/waves.min.js',
+        'resources/theme/assets/js/app.js'
+    ], 'public/js/funcionario.js')
     .copyDirectory('resources/theme/assets/fonts', 'public/fonts')
     .copyDirectory('resources/theme/assets/images', 'public/images');
