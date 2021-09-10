@@ -28,7 +28,8 @@ class DatabaseSeeder extends Seeder
             CargoSimboloSeeder::class,
             CargoSeeder::class,
             EstadoCivilSeeder::class,
-            SexoSeeder::class
+            SexoSeeder::class,
+            EscolaridadeSeeder::class
         ]);
     }
 }

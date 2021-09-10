@@ -16,7 +16,7 @@ class CreateEscolaridadesTable extends Migration
         Schema::create('escolaridades', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('nome');
-            $table->string('slug');
+            $table->string('slug')->nullable();
             $table->string('descricao')->nullable();
             $table->boolean('ativo')->default(1);
             $table->uuid('created_by');
