@@ -2,6 +2,14 @@
     <div data-simplebar class="h-100">
         <div id="sidebar-menu">
             <ul class="metismenu list-unstyled" id="side-menu">
+                @if (Auth::user()->isAdmin() || Auth::user()->isRh())
+                <li class="text-uppercase">
+                    <a href="{{ route('admin.home.index') }}">
+                        <i class="fas fa-exchange-alt text-white"></i>
+                        <span>Ir para o Painel Administrativo</span>
+                    </a>
+                </li>
+                @endif
                 <li class="menu-title text-uppercase">Navegação</li>
                 <li class="text-uppercase">
                     <a
@@ -12,22 +20,22 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="text-uppercase">
+                <!-- <li class="text-uppercase">
                     <a
                         href="{{ route('funcionario.comunicacoes-internas.index') }}"
-                        class="waves-effect @if (request()->is('funcionario/comunicacao-interna*')) active @endif"
+                        class="waves-effect @if (request()->is('funcionario/comunicacoes-internas*')) active @endif"
                     >
                         <i class="fas fa-file-alt text-white" aria-hidden="true"></i>
                         <span>CI</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="text-uppercase">
                     <a
-                        href="{{ route('funcionario.comunicacoes-internas.index') }}"
-                        class="waves-effect @if (request()->is('funcionario/comunicacao-interna*')) active @endif"
+                        href="{{ route('funcionario.dados-pessoais.index') }}"
+                        class="waves-effect @if (request()->is('funcionario/dados-pessoais*')) active @endif"
                     >
                         <i class="fas fa-id-card text-white" aria-hidden="true"></i>
-                        <span>Dados Funcionais</span>
+                        <span>Dados Pessoais</span>
                     </a>
                 </li>
                 <li class="text-uppercase">

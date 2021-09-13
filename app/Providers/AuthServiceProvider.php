@@ -16,7 +16,8 @@ class AuthServiceProvider extends ServiceProvider
         'App\Models\Estado' => 'App\Policies\EstadoPolicy',
         'App\Models\Municipio' => 'App\Policies\MunicipioPolicy',
         'App\Models\Cargo' => 'App\Policies\CargoPolicy',
-        'App\Models\Orgao' => 'App\Policies\OrgaoPolicy'
+        'App\Models\Orgao' => 'App\Policies\OrgaoPolicy',
+        'App\Models\Usuario' => 'App\Policies\UsuarioPolicy'
     ];
 
     /**

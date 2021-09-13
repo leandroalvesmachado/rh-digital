@@ -16,10 +16,12 @@ class EstadoSeeder extends Seeder
     public function run()
     {
         $usuario = DB::table('usuarios')->get()->first();
+        $pais = DB::table('paises')->where('sigla', 'BR')->get()->first();
 
         DB::table('estados')->insert([
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Acre',
                 'slug' => 'acre',
                 'sigla' => 'AC',
@@ -31,6 +33,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Alagoas',
                 'slug' => 'alagoas',
                 'sigla' => 'AL',
@@ -42,6 +45,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Amapá',
                 'slug' => 'amapa',
                 'sigla' => 'AP',
@@ -53,6 +57,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Amazonas',
                 'slug' => 'amazonas',
                 'sigla' => 'AM',
@@ -64,6 +69,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Bahia',
                 'slug' => 'bahia',
                 'sigla' => 'BA',
@@ -75,6 +81,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Ceará',
                 'slug' => 'ceara',
                 'sigla' => 'CE',
@@ -86,6 +93,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Distrito Federal',
                 'slug' => 'distrito-federal',
                 'sigla' => 'DF',
@@ -97,6 +105,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Espírito Santo',
                 'slug' => 'espirito-santo',
                 'sigla' => 'ES',
@@ -108,6 +117,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Goiás',
                 'slug' => 'goias',
                 'sigla' => 'GO',
@@ -119,6 +129,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Maranhão',
                 'slug' => 'maranhao',
                 'sigla' => 'MA',
@@ -130,6 +141,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Mato Grosso',
                 'slug' => 'mato-grosso',
                 'sigla' => 'MT',
@@ -141,6 +153,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Mato Grosso do Sul',
                 'slug' => 'mato-grosso-do-sul',
                 'sigla' => 'MS',
@@ -152,6 +165,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Minas Gerais',
                 'slug' => 'minas-gerais',
                 'sigla' => 'MG',
@@ -163,6 +177,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Pará',
                 'slug' => 'para',
                 'sigla' => 'PA',
@@ -174,6 +189,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Paraíba',
                 'slug' => 'paraiba',
                 'sigla' => 'PB',
@@ -185,6 +201,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Paraná',
                 'slug' => 'parana',
                 'sigla' => 'PR',
@@ -196,6 +213,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Pernambuco',
                 'slug' => 'pernambuco',
                 'sigla' => 'PE',
@@ -207,6 +225,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Piauí',
                 'slug' => 'piaui',
                 'sigla' => 'PI',
@@ -218,6 +237,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Rio Grande do Norte',
                 'slug' => 'rio-grande-do-norte',
                 'sigla' => 'RN',
@@ -229,6 +249,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Rio Grande do Sul',
                 'slug' => 'rio-grande-do-sul',
                 'sigla' => 'RS',
@@ -240,6 +261,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Rio de Janeiro',
                 'slug' => 'rio-de-janeiro',
                 'sigla' => 'RJ',
@@ -251,6 +273,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Rondônia',
                 'slug' => 'rondonia',
                 'sigla' => 'RO',
@@ -262,6 +285,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Roraima',
                 'slug' => 'roraima',
                 'sigla' => 'RR',
@@ -273,6 +297,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Santa Catarina',
                 'slug' => 'santa-catarina',
                 'sigla' => 'SC',
@@ -284,6 +309,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'São Paulo',
                 'slug' => 'sao-paulo',
                 'sigla' => 'SP',
@@ -295,6 +321,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Sergipe',
                 'slug' => 'sergipe',
                 'sigla' => 'SE',
@@ -306,6 +333,7 @@ class EstadoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
+                'pais_id' => $pais->id,
                 'nome' => 'Tocantins',
                 'slug' => 'tocantins',
                 'sigla' => 'TO',

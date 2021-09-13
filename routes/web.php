@@ -26,7 +26,7 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], function() {
-    
+
     // ADMIN
     Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
 
@@ -104,6 +104,17 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
             Route::put('/{setor}', 'SetorController@update')->name('update');
             Route::delete('/{setor}', 'SetorController@destroy')->name('destroy');
         });
+
+        // USUARIOS
+        Route::prefix('usuarios')->name('usuarios.')->group(function() {
+            Route::get('/', 'UsuarioController@index')->name('index');
+            Route::get('/cadastro', 'UsuarioController@create')->name('create');
+            Route::post('/', 'UsuarioController@store')->name('store');
+            Route::get('/{usuario}', 'UsuarioController@show')->name('show');
+            Route::get('/{usuario}/edicao', 'UsuarioController@edit')->name('edit');
+            Route::put('/{usuario}', 'UsuarioController@update')->name('update');
+            Route::delete('/{usuario}', 'UsuarioController@destroy')->name('destroy');
+        });
     });
 
     // FUNCIONARIO
@@ -114,6 +125,13 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
         // COMUNICACOES INTERNAS
         Route::prefix('comunicacoes-internas')->name('comunicacoes-internas.')->group(function() {
             Route::get('/', 'ComunicacaoInternaController@index')->name('index');
+        });
+
+        // DADOS PESSOAIS
+        Route::prefix('dados-pessoais')->name('dados-pessoais.')->group(function() {
+            Route::get('/', 'DadoPessoalController@index')->name('index');
+            // Route::get('/cadastro', 'FuncionarioController@create')->name('create');
+            // Route::post('/', 'FuncionarioController@store')->name('store');
         });
     });
 });

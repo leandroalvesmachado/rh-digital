@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Funcionario;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
+class DadoPessoalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home.index');
+        return view('funcionario.dados-pessoais.index');
     }
 
     /**

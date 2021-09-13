@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call([
             UsuarioSeeder::class,
+            PaisSeeder::class,
             EstadoSeeder::class,
             MunicipioSeeder::class,
             OrgaoSeeder::class,
@@ -29,7 +30,8 @@ class DatabaseSeeder extends Seeder
             CargoSeeder::class,
             EstadoCivilSeeder::class,
             SexoSeeder::class,
-            EscolaridadeSeeder::class
+            EscolaridadeSeeder::class,
+            NacionalidadeSeeder::class
         ]);
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class CargoSeeder extends Seeder
+class NacionalidadeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,20 +16,11 @@ class CargoSeeder extends Seeder
     public function run()
     {
         $usuario = DB::table('usuarios')->get()->first();
-        $cargoSimboloS1 = DB::table('cargo_simbolos')->where('sigla', 'S-1')->get()->first();
-        $cargoSimboloS2 = DB::table('cargo_simbolos')->where('sigla', 'S-2')->get()->first();
-        $cargoSimboloDg1 = DB::table('cargo_simbolos')->where('sigla', 'DG-1')->get()->first();
-        $cargoSimboloDns1 = DB::table('cargo_simbolos')->where('sigla', 'DNS-1')->get()->first();
-        $cargoSimboloDns2 = DB::table('cargo_simbolos')->where('sigla', 'DNS-2')->get()->first();
-        $cargoSimboloDns3 = DB::table('cargo_simbolos')->where('sigla', 'DNS-3')->get()->first();
 
-        DB::table('cargos')->insert([
+        DB::table('nacionalidades')->insert([
             [
                 'id' => Str::orderedUuid(),
-                'cargo_simbolo_id' => $cargoSimboloS1->id,
-                'nome' => 'Secretário',
-                'slug' => 'secretario',
-                'descricao' => 'Secretário',
+                'nome' => 'Brasileiro',
                 'created_by' => $usuario->id,
                 'updated_by' => $usuario->id,
                 'created_at' => date('Y-m-d H:i:s'),
@@ -37,10 +28,7 @@ class CargoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
-                'cargo_simbolo_id' => $cargoSimboloS2->id,
-                'nome' => 'Secretário Executivo',
-                'slug' => 'secretario-executivo',
-                'descricao' => 'Secretário Executivo',
+                'nome' => 'Canadense',
                 'created_by' => $usuario->id,
                 'updated_by' => $usuario->id,
                 'created_at' => date('Y-m-d H:i:s'),
@@ -48,10 +36,7 @@ class CargoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
-                'cargo_simbolo_id' => $cargoSimboloDns3->id,
-                'nome' => 'Articulador',
-                'slug' => 'articulador',
-                'descricao' => 'Articulador',
+                'nome' => 'Chinês',
                 'created_by' => $usuario->id,
                 'updated_by' => $usuario->id,
                 'created_at' => date('Y-m-d H:i:s'),
@@ -59,10 +44,7 @@ class CargoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
-                'cargo_simbolo_id' => $cargoSimboloDns1->id,
-                'nome' => 'Coordenador',
-                'slug' => 'coordenador',
-                'descricao' => 'Coordenador',
+                'nome' => 'Dinamarquês',
                 'created_by' => $usuario->id,
                 'updated_by' => $usuario->id,
                 'created_at' => date('Y-m-d H:i:s'),
@@ -70,10 +52,7 @@ class CargoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
-                'cargo_simbolo_id' => $cargoSimboloDns2->id,
-                'nome' => 'Assessor Técnico',
-                'slug' => 'assessor-tecnico',
-                'descricao' => 'Assessor Técnico',
+                'nome' => 'Francês',
                 'created_by' => $usuario->id,
                 'updated_by' => $usuario->id,
                 'created_at' => date('Y-m-d H:i:s'),
@@ -81,10 +60,7 @@ class CargoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
-                'cargo_simbolo_id' => $cargoSimboloDg1->id,
-                'nome' => 'Ouvidor Geral',
-                'slug' => 'ouvidor-geral',
-                'descricao' => 'Ouvidor Geral',
+                'nome' => 'Alemão',
                 'created_by' => $usuario->id,
                 'updated_by' => $usuario->id,
                 'created_at' => date('Y-m-d H:i:s'),
@@ -92,10 +68,7 @@ class CargoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
-                'cargo_simbolo_id' => $cargoSimboloDns1->id,
-                'nome' => 'Corregedor Geral',
-                'slug' => 'corregedor-geral',
-                'descricao' => 'Corregedor Geral',
+                'nome' => 'Italiano',
                 'created_by' => $usuario->id,
                 'updated_by' => $usuario->id,
                 'created_at' => date('Y-m-d H:i:s'),
@@ -103,10 +76,7 @@ class CargoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
-                'cargo_simbolo_id' => $cargoSimboloDg1->id,
-                'nome' => 'Coordenador Executivo',
-                'slug' => 'coordenador-executivo',
-                'descricao' => 'Coordenador Executivo',
+                'nome' => 'Japonês',
                 'created_by' => $usuario->id,
                 'updated_by' => $usuario->id,
                 'created_at' => date('Y-m-d H:i:s'),
@@ -114,15 +84,52 @@ class CargoSeeder extends Seeder
             ],
             [
                 'id' => Str::orderedUuid(),
-                'cargo_simbolo_id' => $cargoSimboloDns2->id,
-                'nome' => 'Gerente',
-                'slug' => 'gerente',
-                'descricao' => 'Gerente',
+                'nome' => 'Mexicano',
                 'created_by' => $usuario->id,
                 'updated_by' => $usuario->id,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
-            ]
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Português',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Russo',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Árabe',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Espanhol',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Americano',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
         ]);
     }
 }

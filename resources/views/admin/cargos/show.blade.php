@@ -9,12 +9,10 @@
 @can('delete', $cargo)
 
 @if ($errors->any())
-<div class="alert alert-danger mb-2">
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
+<div class="alert alert-danger" role="alert">
+    @foreach ($errors->all() as $error)
+        {{ $error }}
+    @endforeach
 </div>
 @endif
 

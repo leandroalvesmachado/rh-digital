@@ -4,6 +4,8 @@ namespace App\Rules\Admin;
 
 use Illuminate\Contracts\Validation\Rule;
 
+use App\Models\Cargo;
+
 class CargoDestroy implements Rule
 {
     /**

@@ -4,18 +4,37 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
+use App\Repositories\UsuarioRepository;
+
+use App\Models\Usuario;
+
+class UsuarioController extends Controller
 {
+    public function __construct(
+        UsuarioRepository $usuarioRepository
+    )
+    {
+        $this->authorizeResource(Usuario::class, 'usuario');
+        $this->usuarioRepository = $usuarioRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.home.index');
+        if (count($request->all()) > 0) {
+            $usuarios = $this->usuarioRepository->paginateWhere(10, 'name', 'ASC', $request->except(['_token', 'page']));
+        } else {
+            $usuarios = $this->usuarioRepository->paginate(10, 'name');
+        }
+
+        return view('admin.usuarios.index', [
+            'usuarios' => $usuarios
+        ]);
     }
 
     /**

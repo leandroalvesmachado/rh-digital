@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 use OwenIt\Auditing\Contracts\Auditable;
 
-class Estado extends Model implements Auditable
+class Pais extends Model implements Auditable
 {
     use HasFactory;
     use SoftDeletes;
@@ -21,7 +21,7 @@ class Estado extends Model implements Auditable
      *
      * @var string
      */
-    protected $table = 'estados';
+    protected $table = 'paises';
 
     /**
      * The primary key associated with the table.
@@ -50,40 +50,4 @@ class Estado extends Model implements Auditable
      * @var bool
      */
     public $timestamps = true;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'pais_id',
-        'nome',
-        'sigla',
-        'codigo_ibge'
-    ];
-
-    public function __construct($attributes = [])
-    {
-        parent::__construct($attributes);
-        $this->id = Str::orderedUuid();
-        $this->created_by = Auth::id();
-        $this->updated_by = Auth::id();
-    }
-
-    public function setNomeAttribute($value)
-    {
-        $this->attributes['nome'] = $value;
-        $this->attributes['slug'] = Str::slug($value);
-    }
-
-    public function pais()
-    {
-        return $this->belongsTo(Pais::class);
-    }
-
-    public function municipios()
-    {
-        return $this->hasMany(Municipio::class)->orderBy('nome', 'ASC');
-    }
 }

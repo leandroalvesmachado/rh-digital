@@ -2,6 +2,14 @@
     <div data-simplebar class="h-100">
         <div id="sidebar-menu">
             <ul class="metismenu list-unstyled" id="side-menu">
+                @if (Auth::user()->isFuncionario())
+                <li class="text-uppercase">
+                    <a href="{{ route('funcionario.home.index') }}">
+                        <i class="fas fa-exchange-alt text-white"></i>
+                        <span>Ir para o Painel Funcionário</span>
+                    </a>
+                </li>
+                @endif
                 <li class="menu-title text-uppercase">Navegação</li>
                 <li class="text-uppercase">
                     <a
@@ -55,7 +63,10 @@
                     </a>
                 </li>
                 <li class="text-uppercase">
-                    <a href="widgets.html" class="waves-effect @if (request()->is('admin/usuarios*')) active @endif">
+                    <a
+                        href="{{ route('admin.usuarios.index') }}"
+                        class="waves-effect @if (request()->is('admin/usuarios*')) active @endif"
+                    >
                         <i class="fa fa-user text-white" aria-hidden="true"></i>
                         <span>Usuários</span>
                     </a>

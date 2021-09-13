@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Cargo;
+use App\Models\Usuario as UsuarioModel;
 use App\Models\Usuario;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class CargoPolicy
+class UsuarioPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class CargoPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\Usuario  $usuario
-     * @param  \App\Models\Cargo  $cargo
+     * @param  \App\Models\Usuario  $usuario
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(Usuario $usuario, Cargo $cargo)
+    public function view(Usuario $usuario, UsuarioModel $UsuarioModel)
     {
         return true;
     }
@@ -52,10 +52,10 @@ class CargoPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\Usuario  $usuario
-     * @param  \App\Models\Cargo  $cargo
+     * @param  \App\Models\Usuario  $usuario
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(Usuario $usuario, Cargo $cargo)
+    public function update(Usuario $usuario, UsuarioModel $UsuarioModel)
     {
         try {
             return $usuario->isAdmin() ? true : false;
@@ -68,13 +68,13 @@ class CargoPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\Usuario  $usuario
-     * @param  \App\Models\Cargo  $cargo
+     * @param  \App\Models\Usuario  $usuario
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(Usuario $usuario, Cargo $cargo)
+    public function delete(Usuario $usuario, UsuarioModel $UsuarioModel)
     {
         try {
-            return $usuario->isAdmin() ? true : true;
+            return $usuario->isAdmin() ? true : false;
         } catch (Exception $e) {
             return false;
         }
@@ -84,10 +84,10 @@ class CargoPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\Usuario  $usuario
-     * @param  \App\Models\Cargo  $cargo
+     * @param  \App\Models\Usuario  $usuario
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(Usuario $usuario, Cargo $cargo)
+    public function restore(Usuario $usuario, UsuarioModel $UsuarioModel)
     {
         try {
             return $usuario->isAdmin() ? true : false;
@@ -100,10 +100,10 @@ class CargoPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\Usuario  $usuario
-     * @param  \App\Models\Cargo  $cargo
+     * @param  \App\Models\Usuario  $usuario
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(Usuario $usuario, Cargo $cargo)
+    public function forceDelete(Usuario $usuario, UsuarioModel $UsuarioModel)
     {
         return false;
     }

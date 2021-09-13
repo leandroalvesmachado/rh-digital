@@ -37,7 +37,7 @@
     title="Estados"
     subtitle="Listagem"
     model="Estado"
-    :headers="['Nome', 'Sigla', 'Ações']"
+    :headers="['Nome', 'Sigla', 'País', 'Ações']"
     :records="$estados"
 >
     @can('create', App\Models\Estado::class)
@@ -55,6 +55,9 @@
         </td>
         <td class="align-middle">
             {{ $estado->sigla }}
+        </td>
+        <td class="align-middle">
+            {{ $estado->pais->nome }}
         </td>
         <td class="align-middle">
             <x-admin.action
