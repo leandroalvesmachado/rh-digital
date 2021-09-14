@@ -5,11 +5,11 @@ namespace App\Repositories;
 use Exception;
 use DB;
 
-use App\Models\Municipio;
+use App\Models\Funcionario;
 
-class MunicipioRepository extends BaseRepository
+class FuncionarioRepository extends BaseRepository
 {
-    protected $model = Municipio::class;
+    protected $model = Funcionario::class;
 
     public function paginateWhere($paginate = 10, $orderBy, $sort = 'ASC', $columns = null)
     {
@@ -24,14 +24,6 @@ class MunicipioRepository extends BaseRepository
                         $query->orWhere('nome', 'like', '%'.$columns['nome'].'%');
                     });
                 }
-
-                if (isset($columns['sigla'])) {
-                    $query->where(function($query) use ($columns) {
-                        $query->where('sigla', 'like', '%'.mb_strtoupper($columns['sigla']).'%');
-                        $query->orWhere('sigla', 'like', '%'.mb_strtolower($columns['sigla']).'%');
-                        $query->orWhere('sigla', 'like', '%'.$columns['sigla'].'%');
-                    });
-                }
             }
 
             return $query->orderBy($orderBy, $sort)->paginate($paginate);
@@ -43,8 +35,8 @@ class MunicipioRepository extends BaseRepository
     public function store($data)
     {
         try {
-            $municipio = new $this->model($data);
-            $municipio->save();
+            $funcionario = new $this->model($data);
+            $funcionario->save();
 
             return true;
         } catch (Exception $e) {
@@ -52,30 +44,15 @@ class MunicipioRepository extends BaseRepository
         }
     }
 
-    public function update(Municipio $municipio, $data)
+    public function update(Funcionario $funcionario, $data)
     {
         try {
-            $municipio->fill($data);
-            $municipio->save();
+            $funcionario->fill($data);
+            $funcionario->save();
 
             return true;
         } catch (Exception $e){
             return $e->getMessage();
-        }
-    }
-
-    public function selectOption()
-    {
-        try {
-            return $this->model
-                ->all()
-                ->sortBy('nome', SORT_STRING)
-                ->pluck('nome', 'id')
-                ->prepend('Escolha a opção', '');
-        } catch (Exception $e) {
-            return [
-                '' => $e->getMessage()
-            ];
         }
     }
 }

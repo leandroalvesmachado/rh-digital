@@ -69,7 +69,7 @@
                             href="route('logout')"
                             onclick="event.preventDefault(); this.closest('form').submit();"
                         >
-                            Sair
+                            <i class="fas fa-power-off"></i> Sair
                         </a>
                     </form>
                 </div>

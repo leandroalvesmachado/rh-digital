@@ -13,7 +13,7 @@
     <style lang="">
         #teste {
             position: absolute;
-            top: 10%;
+            top: 5%;
             left: 10%;
             right: 10%;
         }
@@ -40,7 +40,7 @@
     <div class="account-pages" id="teste">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-8 col-lg-5 col-xl-4">
+                <div class="col-md-8 col-lg-5 col-xl-5">
                     <div class="card">
                         <div class="card-body">
                             <div class="text-center mt-4">

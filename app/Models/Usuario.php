@@ -116,4 +116,9 @@ class Usuario extends Authenticatable implements Auditable
     {
         return $this->hasMany(UsuarioPerfil::class);
     }
+
+    public function funcionario()
+    {
+        return $this->hasOne(Funcionario::class);
+    }
 }

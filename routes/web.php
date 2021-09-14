@@ -117,8 +117,10 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
         });
     });
 
+
     // FUNCIONARIO
     Route::prefix('funcionario')->name('funcionario.')->namespace('Funcionario')->group(function() {
+
         // HOME
         Route::get('/', 'HomeController@index')->name('home.index');
 
@@ -128,10 +130,22 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
         });
 
         // DADOS PESSOAIS
-        Route::prefix('dados-pessoais')->name('dados-pessoais.')->group(function() {
-            Route::get('/', 'DadoPessoalController@index')->name('index');
-            // Route::get('/cadastro', 'FuncionarioController@create')->name('create');
-            // Route::post('/', 'FuncionarioController@store')->name('store');
+        Route::prefix('dado-pessoal')->name('dado-pessoal.')->namespace('DadoPessoal')->group(function() {
+            Route::get('/', 'HomeController@index')->name('home.index');
+
+            // IDENTIFICACOES
+            Route::prefix('identificacoes')->name('identificacoes.')->group(function() {
+                Route::get('/cadastro', 'IdentificacaoController@create')->name('create');
+                Route::post('/', 'IdentificacaoController@store')->name('store');
+                Route::get('/{funcionario}/edicao', 'IdentificacaoController@edit')->name('edit');
+                Route::put('/{funcionario}', 'IdentificacaoController@update')->name('update');
+            });
+
+            // CONTATOS
+            Route::prefix('contatos')->name('contatos.')->group(function() {
+                Route::get('/cadastro', 'ContatoController@create')->name('create');
+                Route::post('/', 'ContatoController@store')->name('store');
+            });
         });
     });
 });

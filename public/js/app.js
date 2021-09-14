@@ -1999,6 +1999,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on("load", function () {
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('.phone_us').mask('(000) 000-0000');
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('.mixed').mask('AAA 000-S0S');
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('.cpf').mask('000.000.000-00', {
+    clearIfNotMatch: true,
     reverse: true
   });
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('.money').mask('000.000.000.000.000,00', {

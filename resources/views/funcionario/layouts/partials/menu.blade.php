@@ -20,19 +20,10 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <!-- <li class="text-uppercase">
-                    <a
-                        href="{{ route('funcionario.comunicacoes-internas.index') }}"
-                        class="waves-effect @if (request()->is('funcionario/comunicacoes-internas*')) active @endif"
-                    >
-                        <i class="fas fa-file-alt text-white" aria-hidden="true"></i>
-                        <span>CI</span>
-                    </a>
-                </li> -->
                 <li class="text-uppercase">
                     <a
-                        href="{{ route('funcionario.dados-pessoais.index') }}"
-                        class="waves-effect @if (request()->is('funcionario/dados-pessoais*')) active @endif"
+                        href="{{ route('funcionario.dado-pessoal.home.index') }}"
+                        class="waves-effect @if (request()->is('funcionario/dado-pessoal*')) active @endif"
                     >
                         <i class="fas fa-id-card text-white" aria-hidden="true"></i>
                         <span>Dados Pessoais</span>
