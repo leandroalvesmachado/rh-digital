@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFuncionarioContatosTable extends Migration
+class CreateFuncionarioDependentesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,14 @@ class CreateFuncionarioContatosTable extends Migration
      */
     public function up()
     {
-        Schema::create('funcionario_contatos', function (Blueprint $table) {
+        Schema::create('funcionario_dependentes', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('funcionario_id');
             $table->foreign('funcionario_id')->references('id')->on('funcionarios')->onUpdate('cascade');
+            $table->string('cpf', 11)->unique();
+            $table->dateTime('data_nascimento');
             $table->string('nome');
-            $table->string('grau_parentesco')->nullable();
-            $table->string('telefone_residencial', 10)->nullable();
-            $table->string('telefone_celular', 11);
-            $table->string('email_principal')->nullable();
-            $table->string('email_alternativo')->nullable();
-            $table->boolean('preferencial')->default(0);
+            $table->string('nome_mae');
             $table->boolean('ativo')->default(1);
             $table->uuid('created_by');
             $table->foreign('created_by')->references('id')->on('usuarios')->onUpdate('cascade');
@@ -43,6 +40,6 @@ class CreateFuncionarioContatosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('funcionario_contatos');
+        Schema::dropIfExists('funcionario_dependentes');
     }
 }

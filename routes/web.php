@@ -146,6 +146,25 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
                 Route::get('/cadastro', 'ContatoController@create')->name('create');
                 Route::post('/', 'ContatoController@store')->name('store');
             });
+
+            // DEPENDENTES
+            Route::prefix('dependentes')->name('dependentes.')->group(function() {
+                Route::get('/cadastro', 'DependenteController@create')->name('create');
+                Route::post('/', 'DependenteController@store')->name('store');
+            });
+
+            // ENDERECOS
+            Route::prefix('enderecos')->name('enderecos.')->group(function() {
+                Route::get('/cadastro', 'EnderecoController@create')->name('create');
+                Route::post('/', 'EnderecoController@store')->name('store');
+                Route::get('/{funcionario}/edicao', 'EnderecoController@edit')->name('edit');
+                Route::put('/{funcionario}', 'EnderecoController@update')->name('update');
+            });
+        });
+
+        // PASTA DIGITAL
+        Route::prefix('pasta-digital')->name('pasta-digital.')->namespace('PastaDigital')->group(function() {
+            Route::get('/', 'HomeController@index')->name('home.index');
         });
     });
 });

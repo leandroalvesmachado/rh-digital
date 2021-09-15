@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //
+        return view('funcionario.pasta-digital.home.index');
     }
 
     /**

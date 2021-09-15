@@ -34,9 +34,9 @@ class CreateFuncionariosTable extends Migration
             $table->string('nome');
             $table->string('nome_mae');
             $table->string('nome_pai')->nullable();
-            $table->enum('pcd', ['S', 'N'])->comment('pessoa com deficiência');
+            $table->enum('pcd', ['SIM', 'NAO'])->comment('pessoa com deficiência');
             $table->text('pcd_observacao')->nullable();
-            $table->string('email_institucional');
+            $table->string('email_institucional')->unique();
             $table->string('email_particular')->nullable();
             $table->string('telefone_residencial', 10)->nullable();
             $table->string('telefone_celular', 11)->nullable();

@@ -78,6 +78,46 @@ class CargoSimboloSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Analista de Sistemas, Suporte e O&M(Negócios) I',
+                'sigla' => 'A-I',
+                'descricao' => 'Analista de Sistemas, Suporte e O&M(Negócios) I',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Analista de Sistemas, Suporte e O&M(Negócios) II',
+                'sigla' => 'A-II',
+                'descricao' => 'Analista de Sistemas, Suporte e O&M(Negócios) II',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Analista de Sistemas, Suporte e O&M(Negócios) III',
+                'sigla' => 'A-III',
+                'descricao' => 'Analista de Sistemas, Suporte e O&M(Negócios) III',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id' => Str::orderedUuid(),
+                'nome' => 'Analista de Sistemas, Suporte e O&M(Negócios) IV',
+                'sigla' => 'A-IV',
+                'descricao' => 'Analista de Sistemas, Suporte e O&M(Negócios) IV',
+                'created_by' => $usuario->id,
+                'updated_by' => $usuario->id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
         ]);
     }
 }

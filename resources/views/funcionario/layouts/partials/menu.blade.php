@@ -31,8 +31,8 @@
                 </li>
                 <li class="text-uppercase">
                     <a
-                        href="{{ route('funcionario.comunicacoes-internas.index') }}"
-                        class="waves-effect @if (request()->is('funcionario/comunicacao-interna*')) active @endif"
+                        href="{{ route('funcionario.pasta-digital.home.index') }}"
+                        class="waves-effect @if (request()->is('funcionario/pasta-digital*')) active @endif"
                     >
                         <i class="fas fa-folder text-white" aria-hidden="true"></i>
                         <span>Pasta Digital</span>

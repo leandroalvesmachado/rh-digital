@@ -123,7 +123,7 @@
         {!!
             Form::text('telefone_residencial', old('telefone_residencial', isset($funcionario) ? $funcionario->telefone_residencial : ''), [
                 'id' => 'telefone_residencial',
-                'class' => 'form-control '.($errors->has('telefone_residencial') ? 'is-invalid' : '')
+                'class' => 'form-control phone_with_ddd '.($errors->has('telefone_residencial') ? 'is-invalid' : '')
             ])
         !!}
     </div>
@@ -132,7 +132,7 @@
         {!!
             Form::text('telefone_celular', old('telefone_celular', isset($funcionario) ? $funcionario->telefone_celular : ''), [
                 'id' => 'telefone_celular',
-                'class' => 'form-control '.($errors->has('telefone_celular') ? 'is-invalid' : '')
+                'class' => 'form-control phone_with_ddd '.($errors->has('telefone_celular') ? 'is-invalid' : '')
             ])
         !!}
     </div>
@@ -147,14 +147,14 @@
                 'class' => 'form-control '.($errors->has('email_institucional') ? 'is-invalid' : '')
             ])
         !!}
-        <x-funcionario.validation :message="$errors->first('nome_pai')" />
+        <x-funcionario.validation :message="$errors->first('email_institucional')" />
     </div>
     <div class="col-md-6">
-        <x-funcionario.label for="telefone_residencial" class="form-label" name="Telefone Residencial" />
+        <x-funcionario.label for="email_particular" class="form-label" name="E-mail Particular" />
         {!!
-            Form::text('telefone_residencial', old('telefone_residencial', isset($funcionario) ? $funcionario->telefone_residencial : ''), [
-                'id' => 'telefone_residencial',
-                'class' => 'form-control '.($errors->has('telefone_residencial') ? 'is-invalid' : '')
+            Form::text('email_particular', old('email_particular', isset($funcionario) ? $funcionario->email_particular : ''), [
+                'id' => 'email_particular',
+                'class' => 'form-control '.($errors->has('email_particular') ? 'is-invalid' : '')
             ])
         !!}
     </div>

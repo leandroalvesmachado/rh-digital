@@ -37,6 +37,8 @@ class StoreIdentificacaoRequest extends FormRequest
             'nome_pai' => 'nullable|max:255',
             'telefone_residencial' => 'nullable',
             'telefone_celular' => 'nullable',
+            'email_institucional' => 'required|email|unique:funcionarios,email_institucional,NULL,id,deleted_at,NULL',
+            'email_particular' => 'nullable|email',
             'pcd' => 'required',
             'pcd_observacao' => 'nullable|max:500',
         ];
@@ -72,6 +74,10 @@ class StoreIdentificacaoRequest extends FormRequest
             'nome_mae' => 'Nome da Mãe',
             'nome_pai' => 'Nome do Pai',
             'pcd' => 'PCD',
+            'telefone_residencial' => 'Telefone Residencial',
+            'telefone_celular' => 'Celular',
+            'email_institucional' => 'E-mail Institucional',
+            'email_particular' => 'E-mail Particular',
         ];
     }
 }

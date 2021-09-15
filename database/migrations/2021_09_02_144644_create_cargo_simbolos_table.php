@@ -16,7 +16,7 @@ class CreateCargoSimbolosTable extends Migration
         Schema::create('cargo_simbolos', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('nome');
-            $table->string('sigla')->unique();
+            $table->string('sigla')->nullable();
             $table->string('descricao')->nullable();
             $table->boolean('ativo')->default(1);
             $table->uuid('created_by');

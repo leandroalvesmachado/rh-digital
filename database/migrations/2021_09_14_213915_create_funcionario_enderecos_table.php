@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFuncionarioContatosTable extends Migration
+class CreateFuncionarioEnderecosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,22 @@ class CreateFuncionarioContatosTable extends Migration
      */
     public function up()
     {
-        Schema::create('funcionario_contatos', function (Blueprint $table) {
+        Schema::create('funcionario_enderecos', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('funcionario_id');
             $table->foreign('funcionario_id')->references('id')->on('funcionarios')->onUpdate('cascade');
-            $table->string('nome');
-            $table->string('grau_parentesco')->nullable();
-            $table->string('telefone_residencial', 10)->nullable();
-            $table->string('telefone_celular', 11);
-            $table->string('email_principal')->nullable();
-            $table->string('email_alternativo')->nullable();
+            $table->string('cep', 8);
+            $table->uuid('pais_id');
+            $table->foreign('pais_id')->references('id')->on('paises')->onUpdate('cascade');
+            $table->uuid('estado_id');
+            $table->foreign('estado_id')->references('id')->on('estados')->onUpdate('cascade');
+            $table->uuid('municipio_id');
+            $table->foreign('municipio_id')->references('id')->on('municipios')->onUpdate('cascade');
+            $table->string('bairro');
+            $table->string('logradouro');
+            $table->string('numero');
+            $table->string('complemento')->nullable();
+            $table->string('ponto_referencia')->nullable();
             $table->boolean('preferencial')->default(0);
             $table->boolean('ativo')->default(1);
             $table->uuid('created_by');
@@ -43,6 +49,6 @@ class CreateFuncionarioContatosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('funcionario_contatos');
+        Schema::dropIfExists('funcionario_enderecos');
     }
 }
