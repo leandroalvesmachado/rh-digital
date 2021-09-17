@@ -38,7 +38,7 @@ class CreateFuncionariosTable extends Migration
             $table->text('pcd_observacao')->nullable();
             $table->string('email_institucional')->unique();
             $table->string('email_particular')->nullable();
-            $table->string('telefone_residencial', 10)->nullable();
+            $table->string('telefone_residencial', 11)->nullable();
             $table->string('telefone_celular', 11)->nullable();
             $table->boolean('ativo')->default(1);
             $table->uuid('created_by');

@@ -65,7 +65,7 @@ class IdentificacaoController extends Controller
             'nacionalidades' => $this->nacionalidadeRepository->selectOption(),
             'sexos' => $this->sexoRepository->selectOption(),
             'estadosCivis' => $this->estadoCivilRepository->selectOption(),
-            'pcds' => ['' => 'Escolha a opção', 'S' => 'Sim', 'N' => 'Não']
+            'pcds' => ['' => 'Escolha a opção', 'SIM' => 'Sim', 'NAO' => 'Não']
         ]);
     }
 
@@ -117,7 +117,7 @@ class IdentificacaoController extends Controller
             'nacionalidades' => $this->nacionalidadeRepository->selectOption(),
             'sexos' => $this->sexoRepository->selectOption(),
             'estadosCivis' => $this->estadoCivilRepository->selectOption(),
-            'pcds' => ['' => 'Escolha a opção', 'S' => 'Sim', 'N' => 'Não']
+            'pcds' => ['' => 'Escolha a opção', 'SIM' => 'Sim', 'NAO' => 'Não']
         ]);
     }
 

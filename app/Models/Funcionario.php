@@ -118,4 +118,14 @@ class Funcionario extends Model implements Auditable
         $this->attributes['data_nascimento'] = $dataNascimento;
     }
 
+    public function setTelefoneResidencialAttribute($value)
+    {
+        $this->attributes['telefone_residencial'] = preg_replace('/[^0-9]/', '', $value);
+    }
+
+    public function setTelefoneCelularAttribute($value)
+    {
+        $this->attributes['telefone_celular'] = preg_replace('/[^0-9]/', '', $value);
+    }
+
 }

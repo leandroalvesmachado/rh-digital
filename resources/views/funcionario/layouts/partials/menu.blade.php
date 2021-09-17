@@ -35,7 +35,7 @@
                         class="waves-effect @if (request()->is('funcionario/pasta-digital*')) active @endif"
                     >
                         <i class="fas fa-folder text-white" aria-hidden="true"></i>
-                        <span>Pasta Digital</span>
+                        <span>Pasta Funcional Digital</span>
                     </a>
                 </li>
             </ul>

@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="row">
+<!-- <div class="row">
     <div class="col-md-6 col-lg-6 col-xl-3">
         <div class="card">
             <div class="card-body">
@@ -74,7 +74,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 @if (!Auth::user()->funcionario)
 <a href="{{ route('funcionario.dado-pessoal.identificacoes.create') }}">Identificação</a>
