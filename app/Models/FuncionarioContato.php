@@ -11,7 +11,7 @@ use Carbon\Carbon;
 
 use OwenIt\Auditing\Contracts\Auditable;
 
-class Funcionario extends Model implements Auditable
+class FuncionarioContato extends Model implements Auditable
 {
     use HasFactory;
     use SoftDeletes;
@@ -22,7 +22,7 @@ class Funcionario extends Model implements Auditable
      *
      * @var string
      */
-    protected $table = 'funcionarios';
+    protected $table = 'funcionario_contatos';
 
     /**
      * The primary key associated with the table.
@@ -58,24 +58,14 @@ class Funcionario extends Model implements Auditable
      * @var array
      */
     protected $fillable = [
-        'usuario_id',
-        'cpf',
-        'data_nascimento',
-        'pais_nascimento_id',
-        'estado_nascimento_id',
-        'naturalidade_id',
-        'nacionalidade_id',
-        'sexo_id',
-        'estado_civil_id',
+        'funcionario_id',
         'nome',
-        'nome_mae',
-        'nome_pai',
-        'pcd',
-        'pcd_observacao',
-        'email_institucional',
-        'email_particular',
+        'grau_parentesco',
         'telefone_residencial',
         'telefone_celular',
+        'email_principal',
+        'email_alternativo',
+        'preferencial',
         'ativo'
     ];
 
@@ -83,39 +73,8 @@ class Funcionario extends Model implements Auditable
     {
         parent::__construct($attributes);
         $this->id = Str::orderedUuid();
-        $this->usuario_id = Auth::id();
         $this->created_by = Auth::id();
         $this->updated_by = Auth::id();
-    }
-
-    public function fill(array $attributes)
-    {
-        parent::fill($attributes);
-        $this->updated_by = Auth::id();
-    }
-
-    public function delete()
-    {
-        $this->deleted_by = Auth::id();
-        $this->save();
-
-        parent::delete();
-    }
-
-    public function setCpfAttribute($value)
-    {
-        $this->attributes['cpf'] = preg_replace('/[^0-9]/', '', $value);
-    }
-
-    public function getDataNascimentoAttribute($value)
-    {
-        return Carbon::parse($value)->format('d/m/Y');
-    }
-
-    public function setDataNascimentoAttribute($value)
-    {
-        $dataNascimento = substr($value, 6, 4).'-'.substr($value, 3, 2).'-'.substr($value, 0, 2);
-        $this->attributes['data_nascimento'] = $dataNascimento;
     }
 
     public function setTelefoneResidencialAttribute($value)
@@ -128,18 +87,4 @@ class Funcionario extends Model implements Auditable
         $this->attributes['telefone_celular'] = preg_replace('/[^0-9]/', '', $value);
     }
 
-    public function contatos()
-    {
-        return $this->hasMany(FuncionarioContato::class)->orderBy('nome', 'ASC');
-    }
-
-    public function enderecos()
-    {
-        return $this->hasMany(FuncionarioEndereco::class)->orderBy('nome', 'ASC');
-    }
-
-    public function dependentes()
-    {
-        return $this->hasMany(FuncionarioDependente::class)->orderBy('nome', 'ASC');
-    }
 }

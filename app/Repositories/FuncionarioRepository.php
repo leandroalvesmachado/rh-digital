@@ -44,6 +44,16 @@ class FuncionarioRepository extends BaseRepository
         }
     }
 
+    public function storeContato(Funcionario $funcionario, $data)
+    {
+        try {
+
+            return true;
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
     public function update(Funcionario $funcionario, $data)
     {
         try {

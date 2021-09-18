@@ -13,7 +13,6 @@ use App\Repositories\EstadoCivilRepository;
 use App\Repositories\NacionalidadeRepository;
 use App\Repositories\FuncionarioRepository;
 
-
 use App\Models\Funcionario;
 
 use App\Http\Requests\Funcionario\DadoPessoal\StoreIdentificacaoRequest;

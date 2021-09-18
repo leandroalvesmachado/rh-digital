@@ -157,6 +157,7 @@
                 'class' => 'form-control '.($errors->has('email_particular') ? 'is-invalid' : '')
             ])
         !!}
+        <x-funcionario.validation :message="$errors->first('email_particular')" />
     </div>
 </div>
 

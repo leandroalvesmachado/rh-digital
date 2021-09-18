@@ -142,23 +142,23 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
             });
 
             // CONTATOS
-            Route::prefix('contatos')->name('contatos.')->group(function() {
+            Route::prefix('contatos/{funcionario}')->name('contatos.')->group(function() {
                 Route::get('/cadastro', 'ContatoController@create')->name('create');
                 Route::post('/', 'ContatoController@store')->name('store');
             });
 
             // DEPENDENTES
-            Route::prefix('dependentes')->name('dependentes.')->group(function() {
+            Route::prefix('dependentes/{funcionario}')->name('dependentes.')->group(function() {
                 Route::get('/cadastro', 'DependenteController@create')->name('create');
                 Route::post('/', 'DependenteController@store')->name('store');
             });
 
             // ENDERECOS
-            Route::prefix('enderecos')->name('enderecos.')->group(function() {
+            Route::prefix('enderecos/{funcionario}')->name('enderecos.')->group(function() {
                 Route::get('/cadastro', 'EnderecoController@create')->name('create');
                 Route::post('/', 'EnderecoController@store')->name('store');
-                Route::get('/{funcionario}/edicao', 'EnderecoController@edit')->name('edit');
-                Route::put('/{funcionario}', 'EnderecoController@update')->name('update');
+                Route::get('/edicao', 'EnderecoController@edit')->name('edit');
+                Route::put('/', 'EnderecoController@update')->name('update');
             });
         });
 
