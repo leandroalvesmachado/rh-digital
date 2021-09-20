@@ -31,7 +31,8 @@ class DatabaseSeeder extends Seeder
             EstadoCivilSeeder::class,
             SexoSeeder::class,
             EscolaridadeSeeder::class,
-            NacionalidadeSeeder::class
+            NacionalidadeSeeder::class,
+            FuncionarioTipoSeeder::class
         ]);
     }
 }

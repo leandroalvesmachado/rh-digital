@@ -109,8 +109,22 @@ class ContatoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Funcionario $funcionario, FuncionarioContato $funcionarioContato)
     {
-        //
+        $result = $this->funcionarioContatoRepository->destroy($funcionarioContato);
+
+        if ($result === true) {
+            flash('Contato apagado com sucesso!')->success();
+
+            return redirect()->route('funcionario.dado-pessoal.contatos.create', [
+                'funcionario' => $funcionario
+            ]);
+        }
+
+        flash('Erro ao deletar o contato! '.$result)->error();
+
+        return redirect()->route('funcionario.dado-pessoal.contatos.create', [
+            'funcionario' => $funcionario
+        ]);
     }
 }

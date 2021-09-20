@@ -24,11 +24,10 @@ class FuncionarioContatoRepository extends BaseRepository
         }
     }
 
-    public function update(Funcionario $funcionario, FuncionarioContato $funcionarioContato, $data)
+    public function destroy(FuncionarioContato $funcionarioContato)
     {
         try {
-            $funcionario->fill($data);
-            $funcionario->save();
+            $funcionarioContato->delete();
 
             return true;
         } catch (Exception $e){

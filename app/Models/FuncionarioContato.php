@@ -77,6 +77,14 @@ class FuncionarioContato extends Model implements Auditable
         $this->updated_by = Auth::id();
     }
 
+    public function delete()
+    {
+        $this->deleted_by = Auth::id();
+        $this->save();
+
+        parent::delete();
+    }
+
     public function setTelefoneResidencialAttribute($value)
     {
         $this->attributes['telefone_residencial'] = preg_replace('/[^0-9]/', '', $value);

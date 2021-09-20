@@ -37,7 +37,7 @@
                             {{ $slot }}
                             @else
                             <tr>
-                                <td class="align-middle" colspan="3">Nenhum registro encontrado</td>
+                                <td class="align-middle" colspan="7">Nenhum registro encontrado</td>
                             </tr>
                             @endif
                         </tbody>

@@ -19,6 +19,8 @@ class CreateFuncionariosTable extends Migration
             $table->foreign('usuario_id')->references('id')->on('usuarios')->onUpdate('cascade');
             $table->string('cpf', 11)->unique();
             $table->dateTime('data_nascimento');
+            $table->uuid('funcionario_tipo_id');
+            $table->foreign('funcionario_tipo_id')->references('id')->on('funcionario_tipos')->onUpdate('cascade');
             $table->uuid('pais_nascimento_id');
             $table->foreign('pais_nascimento_id')->references('id')->on('paises')->onUpdate('cascade');
             $table->uuid('estado_nascimento_id');

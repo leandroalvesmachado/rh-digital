@@ -145,6 +145,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
             Route::prefix('contatos/{funcionario}')->name('contatos.')->group(function() {
                 Route::get('/cadastro', 'ContatoController@create')->name('create');
                 Route::post('/', 'ContatoController@store')->name('store');
+                Route::delete('/{funcionarioContato}', 'ContatoController@destroy')->name('destroy');
             });
 
             // DEPENDENTES

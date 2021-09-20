@@ -76,7 +76,8 @@ class Funcionario extends Model implements Auditable
         'email_particular',
         'telefone_residencial',
         'telefone_celular',
-        'ativo'
+        'ativo',
+        'funcionario_tipo_id'
     ];
 
     public function __construct($attributes = [])

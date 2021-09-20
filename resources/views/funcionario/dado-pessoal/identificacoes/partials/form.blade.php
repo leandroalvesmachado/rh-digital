@@ -163,6 +163,16 @@
 
 <div class="row mb-3">
     <div class="col-md-3">
+        <x-funcionario.label for="funcionario_tipo_id" class="form-label" name="Tipo" required />
+        {!!
+            Form::select('funcionario_tipo_id', $funcionarioTipos, old('funcionario_tipo_id', isset($funcionario) ? $funcionario->funcionario_tipo_id : ''), [
+                'id' => 'funcionario_tipo_id',
+                'class' => 'form-select '.($errors->has('funcionario_tipo_id') ? 'is-invalid' : '')
+            ])
+        !!}
+        <x-funcionario.validation :message="$errors->first('funcionario_tipo_id')" />
+    </div>
+    <div class="col-md-3">
         <x-funcionario.label for="pcd" class="form-label" name="PCD" required />
         {!!
             Form::select('pcd', $pcds, old('pcd', isset($funcionario) ? $funcionario->pcd : ''), [

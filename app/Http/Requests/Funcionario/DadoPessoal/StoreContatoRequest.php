@@ -25,10 +25,10 @@ class StoreContatoRequest extends FormRequest
     {
         return [
             'nome' => 'required|max:255',
-            'telefone_residencial' => 'nullable',
-            'telefone_celular' => 'nullable',
-            'email_alternativo' => 'nullable|email',
-            'email_principal' => 'nullable|email',
+            'telefone_residencial' => 'nullable|max:14',
+            'telefone_celular' => 'nullable|max:15',
+            'email_alternativo' => 'nullable|max:255|email',
+            'email_principal' => 'nullable|max:255|email',
             'grau_parentesco' => 'nullable|max:255',
         ];
     }

@@ -12,6 +12,7 @@ use App\Repositories\SexoRepository;
 use App\Repositories\EstadoCivilRepository;
 use App\Repositories\NacionalidadeRepository;
 use App\Repositories\FuncionarioRepository;
+use App\Repositories\FuncionarioTipoRepository;
 
 use App\Models\Funcionario;
 
@@ -27,7 +28,8 @@ class IdentificacaoController extends Controller
         SexoRepository $sexoRepository,
         EstadoCivilRepository $estadoCivilRepository,
         NacionalidadeRepository $nacionalidadeRepository,
-        FuncionarioRepository $funcionarioRepository
+        FuncionarioRepository $funcionarioRepository,
+        FuncionarioTipoRepository $funcionarioTipoRepository
     )
     {
         $this->authorizeResource(Funcionario::class, 'funcionario');
@@ -38,6 +40,7 @@ class IdentificacaoController extends Controller
         $this->estadoCivilRepository = $estadoCivilRepository;
         $this->nacionalidadeRepository = $nacionalidadeRepository;
         $this->funcionarioRepository = $funcionarioRepository;
+        $this->funcionarioTipoRepository = $funcionarioTipoRepository;
     }
 
     /**
@@ -64,7 +67,8 @@ class IdentificacaoController extends Controller
             'nacionalidades' => $this->nacionalidadeRepository->selectOption(),
             'sexos' => $this->sexoRepository->selectOption(),
             'estadosCivis' => $this->estadoCivilRepository->selectOption(),
-            'pcds' => ['' => 'Escolha a opção', 'SIM' => 'Sim', 'NAO' => 'Não']
+            'pcds' => ['' => 'Escolha a opção', 'SIM' => 'Sim', 'NAO' => 'Não'],
+            'funcionarioTipos' => $this->funcionarioTipoRepository->selectOption()
         ]);
     }
 
@@ -116,7 +120,8 @@ class IdentificacaoController extends Controller
             'nacionalidades' => $this->nacionalidadeRepository->selectOption(),
             'sexos' => $this->sexoRepository->selectOption(),
             'estadosCivis' => $this->estadoCivilRepository->selectOption(),
-            'pcds' => ['' => 'Escolha a opção', 'SIM' => 'Sim', 'NAO' => 'Não']
+            'pcds' => ['' => 'Escolha a opção', 'SIM' => 'Sim', 'NAO' => 'Não'],
+            'funcionarioTipos' => $this->funcionarioTipoRepository->selectOption()
         ]);
     }
 

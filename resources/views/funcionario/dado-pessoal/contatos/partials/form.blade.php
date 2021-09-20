@@ -17,6 +17,7 @@
                 'class' => 'form-control phone_with_ddd '.($errors->has('telefone_residencial') ? 'is-invalid' : '')
             ])
         !!}
+        <x-funcionario.validation :message="$errors->first('telefone_residencial')" />
     </div>
     <div class="col-md-3">
         <x-funcionario.label for="telefone_celular" class="form-label" name="Celular" />
@@ -26,6 +27,7 @@
                 'class' => 'form-control phone_with_ddd '.($errors->has('telefone_celular') ? 'is-invalid' : '')
             ])
         !!}
+        <x-funcionario.validation :message="$errors->first('telefone_celular')" />
     </div>
 </div>
 
@@ -65,22 +67,3 @@
     </div>
 </div>
 
-<!-- $table->uuid('id')->primary();
-            $table->uuid('funcionario_id');
-            $table->foreign('funcionario_id')->references('id')->on('funcionarios')->onUpdate('cascade');
-            $table->string('nome');
-            $table->string('grau_parentesco')->nullable();
-            $table->string('telefone_residencial', 10)->nullable();
-            $table->string('telefone_celular', 11);
-            $table->string('email_principal')->nullable();
-            $table->string('email_alternativo')->nullable();
-            $table->boolean('preferencial')->default(0);
-            $table->boolean('ativo')->default(1);
-            $table->uuid('created_by');
-            $table->foreign('created_by')->references('id')->on('usuarios')->onUpdate('cascade');
-            $table->uuid('updated_by');
-            $table->foreign('updated_by')->references('id')->on('usuarios')->onUpdate('cascade');
-            $table->uuid('deleted_by')->nullable();
-            $table->foreign('deleted_by')->references('id')->on('usuarios')->onUpdate('cascade');
-            $table->timestamps();
-            $table->softDeletes(); -->
