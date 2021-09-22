@@ -80,12 +80,15 @@
 <a href="{{ route('funcionario.dado-pessoal.identificacoes.create') }}">Identificação</a>
 @else
 <a href="{{ route('funcionario.dado-pessoal.identificacoes.edit', Auth::user()->funcionario) }}">Identificação Atualizar</a>
+
 <br>
 <a href="{{ route('funcionario.dado-pessoal.contatos.create', Auth::user()->funcionario) }}">Contatos</a>
+
+<br>
+<a href="{{ route('funcionario.dado-pessoal.dependentes.create', Auth::user()->funcionario) }}">Dependentes</a>
+
 <br>
 <a href="{{ route('funcionario.dado-pessoal.enderecos.create', Auth::user()->funcionario) }}">Endereços</a>
-<br>
-<a href="#">Dependentes</a>
 @endif
 
 @endsection

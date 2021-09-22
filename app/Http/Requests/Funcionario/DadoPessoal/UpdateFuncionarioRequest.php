@@ -4,7 +4,7 @@ namespace App\Http\Requests\Funcionario\DadoPessoal;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateIdentificacaoRequest extends FormRequest
+class UpdateFuncionarioRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -39,6 +39,7 @@ class UpdateIdentificacaoRequest extends FormRequest
             'nome_pai' => 'nullable|max:255',
             'pcd' => 'required',
             'pcd_observacao' => 'nullable|max:500',
+            'funcionario_tipo_id' => 'required'
         ];
     }
 
@@ -72,6 +73,11 @@ class UpdateIdentificacaoRequest extends FormRequest
             'nome_mae' => 'Nome da Mãe',
             'nome_pai' => 'Nome do Pai',
             'pcd' => 'PCD',
+            'telefone_residencial' => 'Telefone Residencial',
+            'telefone_celular' => 'Celular',
+            'email_institucional' => 'E-mail Institucional',
+            'email_particular' => 'E-mail Particular',
+            'funcionario_tipo_id' => 'Tipo'
         ];
     }
 }

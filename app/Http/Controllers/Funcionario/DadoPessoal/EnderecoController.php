@@ -13,7 +13,7 @@ use App\Repositories\MunicipioRepository;
 use App\Models\Funcionario;
 use App\Models\FuncionarioEndereco;
 
-use App\Http\Requests\Funcionario\DadoPessoal\StoreEnderecoRequest;
+use App\Http\Requests\Funcionario\DadoPessoal\StoreFuncionarioEnderecoRequest;
 
 class EnderecoController extends Controller
 {
@@ -62,7 +62,7 @@ class EnderecoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreEnderecoRequest $request, Funcionario $funcionario)
+    public function store(StoreFuncionarioEnderecoRequest $request, Funcionario $funcionario)
     {
         $result = $this->funcionarioEnderecoRepository->store($funcionario, $request->except(['_token']));
 

@@ -5,21 +5,21 @@ namespace App\Http\Controllers\Funcionario\DadoPessoal;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Repositories\FuncionarioContatoRepository;
+use App\Repositories\FuncionarioDependenteRepository;
 
 use App\Models\Funcionario;
-use App\Models\FuncionarioContato;
+use App\Models\FuncionarioDependente;
 
-use App\Http\Requests\Funcionario\DadoPessoal\StoreFuncionarioContatoRequest;
+use App\Http\Requests\Funcionario\DadoPessoal\StoreFuncionarioDependenteRequest;
 
-class ContatoController extends Controller
+class DependenteController extends Controller
 {
     public function __construct(
-        FuncionarioContatoRepository $funcionarioContatoRepository
+        FuncionarioDependenteRepository $funcionarioDependenteRepository
     )
     {
-        // $this->authorizeResource(FuncionarioContato::class, 'funcionarioContato');
-        $this->funcionarioContatoRepository = $funcionarioContatoRepository;
+        // $this->authorizeResource(FuncionarioDependente::class, 'funcionarioDependente');
+        $this->funcionarioDependenteRepository = $funcionarioDependenteRepository;
     }
 
     /**
@@ -39,7 +39,7 @@ class ContatoController extends Controller
      */
     public function create(Funcionario $funcionario)
     {
-        return view('funcionario.dado-pessoal.contatos.create', [
+        return view('funcionario.dado-pessoal.dependentes.create', [
             'funcionario' => $funcionario
         ]);
     }
@@ -50,17 +50,17 @@ class ContatoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreFuncionarioContatoRequest $request, Funcionario $funcionario)
+    public function store(StoreFuncionarioDependenteRequest $request, Funcionario $funcionario)
     {
-        $result = $this->funcionarioContatoRepository->store($funcionario, $request->except(['_token']));
+        $result = $this->funcionarioDependenteRepository->store($funcionario, $request->except(['_token']));
 
         if ($result === true) {
-            flash('Contato do funcionário adicionado com sucesso!')->success();
+            flash('Dependente adicionado com sucesso!')->success();
         } else {
-            flash('Erro ao salvar o contato do funcionário! '.$result)->error();
+            flash('Erro ao salvar o dependente! '.$result)->error();
         }
 
-        return redirect()->route('funcionario.dado-pessoal.contatos.create', [
+        return redirect()->route('funcionario.dado-pessoal.dependentes.create', [
             'funcionario' => $funcionario
         ]);
     }
@@ -105,17 +105,17 @@ class ContatoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Funcionario $funcionario, FuncionarioContato $funcionarioContato)
+    public function destroy(Funcionario $funcionario, FuncionarioDependente $funcionarioDependente)
     {
-        $result = $this->funcionarioContatoRepository->destroy($funcionarioContato);
+        $result = $this->funcionarioDependenteRepository->destroy($funcionarioDependente);
 
         if ($result === true) {
-            flash('Contato apagado com sucesso!')->success();
+            flash('Dependente apagado com sucesso!')->success();
         } else {
-            flash('Erro ao deletar o contato! '.$result)->error();
+            flash('Erro ao deletar o dependente! '.$result)->error();
         }
 
-        return redirect()->route('funcionario.dado-pessoal.contatos.create', [
+        return redirect()->route('funcionario.dado-pessoal.dependentes.create', [
             'funcionario' => $funcionario
         ]);
     }

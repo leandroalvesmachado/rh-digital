@@ -4,7 +4,7 @@ namespace App\Http\Requests\Funcionario\DadoPessoal;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreEnderecoRequest extends FormRequest
+class StoreFuncionarioDependenteRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +24,10 @@ class StoreEnderecoRequest extends FormRequest
     public function rules()
     {
         return [
+            'cpf' => 'required|max:14|cpf|unique:funcionarios,cpf,NULL,id,deleted_at,NULL',
+            'data_nascimento' => 'required|date_format:d/m/Y',
             'nome' => 'required|max:255',
-            'cep' => 'required|max:9',
-            'pais_id' => 'required',
-            'estado_id' => 'required',
-            'municipio_id' => 'required',
-            'bairro' => 'required|max:255',
-            'logradouro' => 'required|max:255',
-            'numero' => 'required|max:255',
-            'complemento' => 'nullable|max:255',
-            'ponto_referencia' => 'nullable|max:255',
+            'nome_mae' => 'required|max:255'
         ];
     }
 
@@ -55,16 +49,10 @@ class StoreEnderecoRequest extends FormRequest
     public function attributes()
     {
         return [
+            'cpf' => 'CPF',
+            'data_nascimento' => 'Data de Nascimento',
             'nome' => 'Nome',
-            'cep' => 'CEP',
-            'pais_id' => 'País',
-            'estado_id' => 'Estado',
-            'municipio_id' => 'Município',
-            'bairro' => 'Bairro',
-            'logradouro' => 'Logradouro',
-            'numero' => 'Número',
-            'complemento' => 'Complemento',
-            'ponto_referencia' => 'Ponto de Referência',
+            'nome_mae' => 'Nome da Mãe'
         ];
     }
 }

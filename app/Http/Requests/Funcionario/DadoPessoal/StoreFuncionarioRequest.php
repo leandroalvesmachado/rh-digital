@@ -4,7 +4,7 @@ namespace App\Http\Requests\Funcionario\DadoPessoal;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreIdentificacaoRequest extends FormRequest
+class StoreFuncionarioRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -41,6 +41,7 @@ class StoreIdentificacaoRequest extends FormRequest
             'email_particular' => 'nullable|email',
             'pcd' => 'required',
             'pcd_observacao' => 'nullable|max:500',
+            'funcionario_tipo_id' => 'required'
         ];
     }
 
@@ -78,6 +79,7 @@ class StoreIdentificacaoRequest extends FormRequest
             'telefone_celular' => 'Celular',
             'email_institucional' => 'E-mail Institucional',
             'email_particular' => 'E-mail Particular',
+            'funcionario_tipo_id' => 'Tipo'
         ];
     }
 }

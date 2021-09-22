@@ -149,10 +149,11 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
             });
 
             // DEPENDENTES
-            // Route::prefix('dependentes/{funcionario}')->name('dependentes.')->group(function() {
-            //     Route::get('/cadastro', 'DependenteController@create')->name('create');
-            //     Route::post('/', 'DependenteController@store')->name('store');
-            // });
+            Route::prefix('dependentes/{funcionario}')->name('dependentes.')->group(function() {
+                Route::get('/cadastro', 'DependenteController@create')->name('create');
+                Route::post('/', 'DependenteController@store')->name('store');
+                Route::delete('/{funcionarioDependente}', 'DependenteController@destroy')->name('destroy');
+            });
 
             // ENDERECOS
             Route::prefix('enderecos/{funcionario}')->name('enderecos.')->group(function() {

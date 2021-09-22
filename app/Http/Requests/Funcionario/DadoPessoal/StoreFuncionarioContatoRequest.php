@@ -4,7 +4,7 @@ namespace App\Http\Requests\Funcionario\DadoPessoal;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreContatoRequest extends FormRequest
+class StoreFuncionarioContatoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

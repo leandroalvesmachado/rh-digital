@@ -16,8 +16,8 @@ use App\Repositories\FuncionarioTipoRepository;
 
 use App\Models\Funcionario;
 
-use App\Http\Requests\Funcionario\DadoPessoal\StoreIdentificacaoRequest;
-use App\Http\Requests\Funcionario\DadoPessoal\UpdateIdentificacaoRequest;
+use App\Http\Requests\Funcionario\DadoPessoal\StoreFuncionarioRequest;
+use App\Http\Requests\Funcionario\DadoPessoal\UpdateFuncionarioRequest;
 
 class IdentificacaoController extends Controller
 {
@@ -78,7 +78,7 @@ class IdentificacaoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreIdentificacaoRequest $request)
+    public function store(StoreFuncionarioRequest $request)
     {
         $result = $this->funcionarioRepository->store($request->except(['_token']));
 
@@ -132,7 +132,7 @@ class IdentificacaoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateIdentificacaoRequest $request, Funcionario $funcionario)
+    public function update(UpdateFuncionarioRequest $request, Funcionario $funcionario)
     {
         $result = $this->funcionarioRepository->update($funcionario, $request->except(['_token']));
 
