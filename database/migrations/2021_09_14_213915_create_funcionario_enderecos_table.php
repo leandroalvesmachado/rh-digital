@@ -17,6 +17,7 @@ class CreateFuncionarioEnderecosTable extends Migration
             $table->uuid('id')->primary();
             $table->uuid('funcionario_id');
             $table->foreign('funcionario_id')->references('id')->on('funcionarios')->onUpdate('cascade');
+            $table->string('nome');
             $table->string('cep', 8);
             $table->uuid('pais_id');
             $table->foreign('pais_id')->references('id')->on('paises')->onUpdate('cascade');

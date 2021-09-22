@@ -149,17 +149,16 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
             });
 
             // DEPENDENTES
-            Route::prefix('dependentes/{funcionario}')->name('dependentes.')->group(function() {
-                Route::get('/cadastro', 'DependenteController@create')->name('create');
-                Route::post('/', 'DependenteController@store')->name('store');
-            });
+            // Route::prefix('dependentes/{funcionario}')->name('dependentes.')->group(function() {
+            //     Route::get('/cadastro', 'DependenteController@create')->name('create');
+            //     Route::post('/', 'DependenteController@store')->name('store');
+            // });
 
             // ENDERECOS
             Route::prefix('enderecos/{funcionario}')->name('enderecos.')->group(function() {
                 Route::get('/cadastro', 'EnderecoController@create')->name('create');
                 Route::post('/', 'EnderecoController@store')->name('store');
-                Route::get('/edicao', 'EnderecoController@edit')->name('edit');
-                Route::put('/', 'EnderecoController@update')->name('update');
+                Route::delete('/{funcionarioEndereco}', 'EnderecoController@destroy')->name('destroy');
             });
         });
 

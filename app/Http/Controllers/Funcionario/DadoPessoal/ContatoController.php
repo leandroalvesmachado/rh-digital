@@ -115,13 +115,9 @@ class ContatoController extends Controller
 
         if ($result === true) {
             flash('Contato apagado com sucesso!')->success();
-
-            return redirect()->route('funcionario.dado-pessoal.contatos.create', [
-                'funcionario' => $funcionario
-            ]);
+        } else {
+            flash('Erro ao deletar o contato! '.$result)->error();
         }
-
-        flash('Erro ao deletar o contato! '.$result)->error();
 
         return redirect()->route('funcionario.dado-pessoal.contatos.create', [
             'funcionario' => $funcionario

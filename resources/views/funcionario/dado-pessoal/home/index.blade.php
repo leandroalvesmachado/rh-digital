@@ -83,7 +83,7 @@
 <br>
 <a href="{{ route('funcionario.dado-pessoal.contatos.create', Auth::user()->funcionario) }}">Contatos</a>
 <br>
-<a href="#">Endereço Residencial</a>
+<a href="{{ route('funcionario.dado-pessoal.enderecos.create', Auth::user()->funcionario) }}">Endereços</a>
 <br>
 <a href="#">Dependentes</a>
 @endif
