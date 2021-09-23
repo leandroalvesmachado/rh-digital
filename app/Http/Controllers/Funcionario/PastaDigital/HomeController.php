@@ -4,9 +4,20 @@ namespace App\Http\Controllers\Funcionario\PastaDigital;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use App\Repositories\TipoArquivoRepository;
 
 class HomeController extends Controller
 {
+    public function __construct(
+        TipoArquivoRepository $tipoArquivoRepository
+    )
+    {
+        // $this->authorizeResource(FuncionarioContato::class, 'funcionarioContato');
+        $this->tipoArquivoRepository = $tipoArquivoRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +25,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('funcionario.pasta-digital.home.index');
+        $usuario = Auth::user();
+
+        return view('funcionario.pasta-digital.home.index', [
+            'usuario' => $usuario,
+            'usuarioFuncionario' => $usuario->funcionario,
+            'tipoArquivos' => $this->tipoArquivoRepository->findAll()
+        ]);
     }
 
     /**

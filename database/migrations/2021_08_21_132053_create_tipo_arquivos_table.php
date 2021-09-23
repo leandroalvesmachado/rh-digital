@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArquivoTiposTable extends Migration
+class CreateTipoArquivosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateArquivoTiposTable extends Migration
      */
     public function up()
     {
-        Schema::create('arquivo_tipos', function (Blueprint $table) {
+        Schema::create('tipo_arquivos', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('nome');
             $table->string('descricao');
@@ -38,6 +38,6 @@ class CreateArquivoTiposTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('arquivo_tipos');
+        Schema::dropIfExists('tipo_arquivos');
     }
 }

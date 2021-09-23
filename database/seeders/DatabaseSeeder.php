@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             SetorSeeder::class,
             CelulaSeeder::class,
             SecaoSeeder::class,
-            ArquivoTipoSeeder::class,
+            TipoArquivoSeeder::class,
             PerfilSeeder::class,
             UsuarioPerfilSeeder::class,
             CargoSimboloSeeder::class,

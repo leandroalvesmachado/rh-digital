@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Funcionario\DadoPessoal;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+
 class HomeController extends Controller
 {
     /**
@@ -14,7 +16,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('funcionario.dado-pessoal.home.index');
+        $usuario = Auth::user();
+
+        return view('funcionario.dado-pessoal.home.index', [
+            'usuario' => $usuario,
+            'usuarioFuncionario' => $usuario->funcionario
+        ]);
     }
 
     /**

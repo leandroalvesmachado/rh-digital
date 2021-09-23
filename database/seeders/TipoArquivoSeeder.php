@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class ArquivoTipoSeeder extends Seeder
+class TipoArquivoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,7 +17,7 @@ class ArquivoTipoSeeder extends Seeder
     {
         $usuario = DB::table('usuarios')->get()->first();
 
-        DB::table('arquivo_tipos')->insert([
+        DB::table('tipo_arquivos')->insert([
             [
                 'id' => Str::orderedUuid(),
                 'nome' => 'CNH',

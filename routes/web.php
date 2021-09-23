@@ -131,6 +131,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
 
         // DADOS PESSOAIS
         Route::prefix('dado-pessoal')->name('dado-pessoal.')->namespace('DadoPessoal')->group(function() {
+            // HOME
             Route::get('/', 'HomeController@index')->name('home.index');
 
             // IDENTIFICACOES
@@ -142,14 +143,14 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
             });
 
             // CONTATOS
-            Route::prefix('contatos/{funcionario}')->name('contatos.')->group(function() {
+            Route::prefix('{funcionario}/contatos')->name('contatos.')->group(function() {
                 Route::get('/cadastro', 'ContatoController@create')->name('create');
                 Route::post('/', 'ContatoController@store')->name('store');
                 Route::delete('/{funcionarioContato}', 'ContatoController@destroy')->name('destroy');
             });
 
             // DEPENDENTES
-            Route::prefix('dependentes/{funcionario}')->name('dependentes.')->group(function() {
+            Route::prefix('{funcionario}/dependentes')->name('dependentes.')->group(function() {
                 Route::get('/cadastro', 'DependenteController@create')->name('create');
                 Route::post('/', 'DependenteController@store')->name('store');
                 Route::delete('/{funcionarioDependente}', 'DependenteController@destroy')->name('destroy');
@@ -165,7 +166,15 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
 
         // PASTA DIGITAL
         Route::prefix('pasta-digital')->name('pasta-digital.')->namespace('PastaDigital')->group(function() {
+            // HOME
             Route::get('/', 'HomeController@index')->name('home.index');
+
+            // ARQUIVOS
+            Route::prefix('{funcionario}/arquivos')->name('arquivos.')->group(function() {
+                Route::get('/cadastro', 'ArquivoController@create')->name('create');
+                Route::post('/', 'ArquivoController@store')->name('store');
+                Route::delete('/{funcionarioArquivo}', 'ArquivoController@destroy')->name('destroy');
+            });
         });
     });
 });
