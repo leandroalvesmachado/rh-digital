@@ -171,8 +171,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
 
             // ARQUIVOS
             Route::prefix('{funcionario}/arquivos')->name('arquivos.')->group(function() {
-                Route::get('/cadastro', 'ArquivoController@create')->name('create');
-                Route::post('/', 'ArquivoController@store')->name('store');
+                Route::get('{tipoArquivo}/cadastro', 'ArquivoController@create')->name('create');
+                Route::post('{tipoArquivo}/', 'ArquivoController@store')->name('store');
                 Route::delete('/{funcionarioArquivo}', 'ArquivoController@destroy')->name('destroy');
             });
         });

@@ -21,8 +21,8 @@
                         <a
                             href="{{
                                 route('funcionario.pasta-digital.arquivos.create', [
-                                    $usuarioFuncionario,
-                                    'tipo_arquivo_id' => $tipoArquivo
+                                    'funcionario' => $usuarioFuncionario,
+                                    'tipoArquivo' => $tipoArquivo
                                 ])
                             }}"
                             class="stretched-link"
