@@ -2,6 +2,8 @@
 
 namespace App\Repositories;
 
+use Illuminate\Support\Str;
+
 use Exception;
 use DB;
 
@@ -18,9 +20,9 @@ class FuncionarioArquivoRepository extends BaseRepository
         $arquivo = $data['arquivo'];
         $arquivoExtensao = $arquivo->extension();
         $arquivoMimeType = $arquivo->getClientMimeType();
-        $arquivoNome = slug($data['arquivo']);
-        // bytes
-        $arquivoSize = $arquivo->getSize();
+        $arquivoNome = Str::slug($data['nome']).'.'.$arquivoExtensao;
+        $arquivoSize = $arquivo->getSize(); // bytes
+        $arquivoMetaData = '$arquivo->getMetadata()';
 
         echo"<pre>";
         print_r($arquivo);
@@ -28,6 +30,22 @@ class FuncionarioArquivoRepository extends BaseRepository
         echo $arquivoExtensao;
         echo"<br>";
         echo $arquivoMimeType;
+        echo"<br>";
+        echo $arquivoNome;
+        echo"<br>";
+        echo $arquivoSize;
+        echo"<br>";
+        echo $arquivoMetaData;
+
+        $funcionarioArquivo = new $this->model();
+        $funcionarioArquivo->nome = $arquivoNome;
+        $funcionarioArquivo->descricao = $data['descricao'];
+        $funcionarioArquivo->observacao = $data['observacao'];
+        $funcionarioArquivo->arquivo = $arquivoNome;
+        $funcionarioArquivo->arquivo_caminho = '';
+        $funcionarioArquivo->content_type = $arquivoMimeType;
+        $funcionarioArquivo->metadata = $arquivoMimeType;
+        $funcionarioArquivo->byte_size = $arquivoSize;
 
         dd($arquivo);
         try {

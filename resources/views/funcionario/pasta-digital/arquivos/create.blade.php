@@ -7,7 +7,7 @@
 @section('content')
 
 <x-funcionario.form-create
-    title="Arquivo"
+    title="Arquivo - {{ $tipoArquivo->nome }}"
     subtitle="Novo"
     :action="route('funcionario.pasta-digital.arquivos.store', [$funcionario, $tipoArquivo])"
     :routeBack="route('funcionario.pasta-digital.home.index')"

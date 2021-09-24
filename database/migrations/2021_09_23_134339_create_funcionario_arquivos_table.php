@@ -27,6 +27,7 @@ class CreateFuncionarioArquivosTable extends Migration
             $table->string('content_type');
             $table->text('metadata');
             $table->bigInteger('byte_size')->comment('tamanho em bytes');
+            $table->boolean('validado')->default(0);
             $table->boolean('ativo')->default(1);
             $table->uuid('created_by');
             $table->foreign('created_by')->references('id')->on('usuarios')->onUpdate('cascade');
