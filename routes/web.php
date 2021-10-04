@@ -25,10 +25,10 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], function() {
+Route::group(['middleware' => ['auth'], 'namespace' => 'App\Http\Controllers'], function() {
 
     // ADMIN
-    Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
+    Route::middleware('admin')->prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
 
         // HOME
         Route::get('/', 'HomeController@index')->name('home.index');
@@ -119,7 +119,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fu
 
 
     // FUNCIONARIO
-    Route::prefix('funcionario')->name('funcionario.')->namespace('Funcionario')->group(function() {
+    Route::middleware('funcionario')->prefix('funcionario')->name('funcionario.')->namespace('Funcionario')->group(function() {
 
         // HOME
         Route::get('/', 'HomeController@index')->name('home.index');

@@ -24,14 +24,6 @@ class UsuarioSeeder extends Seeder
                 'password' => Hash::make('password'),
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
-            ],
-            [
-                'id' => Str::orderedUuid(),
-                'name' => 'Leandro Machado',
-                'email' => 'leandro.machado@cgm.fortaleza.ce.gov.br',
-                'password' => Hash::make('password'),
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
             ]
         ]);
     }

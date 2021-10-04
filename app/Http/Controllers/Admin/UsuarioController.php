@@ -9,6 +9,10 @@ use App\Repositories\UsuarioRepository;
 
 use App\Models\Usuario;
 
+use App\Http\Requests\Admin\StoreUsuarioRequest;
+use App\Http\Requests\Admin\UpdateUsuarioRequest;
+use App\Http\Requests\Admin\DestroyUsuarioRequest;
+
 class UsuarioController extends Controller
 {
     public function __construct(
@@ -44,7 +48,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.usuarios.create');
     }
 
     /**
@@ -53,9 +57,19 @@ class UsuarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUsuarioRequest $request)
     {
-        //
+        $result = $this->usuarioRepository->store($request->except(['_token']));
+
+        if ($result === true) {
+            flash('Usuário cadastrado com sucesso!')->success();
+
+            return redirect()->route('admin.usuarios.index');
+        }
+
+        flash('Erro ao cadastrar o usuário! '.$result)->error();
+
+        return redirect()->route('admin.usuarios.create');
     }
 
     /**
@@ -64,9 +78,11 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Usuario $usuario)
     {
-        //
+        return view('admin.usuarios.show', [
+            'usuario' => $usuario
+        ]);
     }
 
     /**
@@ -75,9 +91,11 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Usuario $usuario)
     {
-        //
+        return view('admin.usuarios.edit', [
+            'usuario' => $usuario
+        ]);
     }
 
     /**
@@ -87,9 +105,21 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUsuarioRequest $request, Usuario $usuario)
     {
-        //
+        $result = $this->usuarioRepository->update($usuario, $request->except(['_token']));
+
+        if ($result === true) {
+            flash('Usuário atualizado com sucesso!')->success();
+
+            return redirect()->route('admin.usuarios.index');
+        }
+
+        flash('Erro ao atualizar o usuário! '.$result)->error();
+
+        return redirect()->route('admin.usuarios.edit', [
+            'usuario' => $usuario
+        ]);
     }
 
     /**
@@ -98,8 +128,20 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(DestroyUsuarioRequest $request, Usuario $usuario)
     {
-        //
+        $result = $this->usuarioRepository->destroy($usuario);
+
+        if ($result === true) {
+            flash('Usuário apagado com sucesso!')->success();
+
+            return redirect()->route('admin.usuarios.index');
+        }
+
+        flash('Erro ao deletar o usuário! '.$result)->error();
+
+        return redirect()->route('admin.usuarios.show', [
+            'usuario' => $usuario
+        ]);
     }
 }
