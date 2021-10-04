@@ -143,4 +143,9 @@ class Funcionario extends Model implements Auditable
     {
         return $this->hasMany(FuncionarioDependente::class)->orderBy('nome', 'ASC');
     }
+
+    public function arquivos()
+    {
+        return $this->hasMany(FuncionarioArquivo::class)->orderBy('nome', 'ASC');
+    }
 }

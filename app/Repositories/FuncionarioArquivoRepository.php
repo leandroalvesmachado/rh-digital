@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 use Exception;
 use DB;
@@ -15,45 +16,48 @@ class FuncionarioArquivoRepository extends BaseRepository
 {
     protected $model = FuncionarioArquivo::class;
 
+    public function paginateByTipoArquivo($paginate = 10, $orderBy, $funcionarioId, $tipoArquivoId, $sort = 'ASC')
+    {
+        try {
+            $query = $this->model->query();
+            $query->where('funcionario_id', $funcionarioId);
+            $query->where('tipo_arquivo_id', $tipoArquivoId);
+
+            return $query->orderBy('nome', $sort)->paginate($paginate);
+        } catch (Exception $e) {
+            return [];
+        }
+    }
+
     public function store(Funcionario $funcionario, TipoArquivo $tipoArquivo, $data)
     {
-        $arquivo = $data['arquivo'];
-        $arquivoExtensao = $arquivo->extension();
-        $arquivoMimeType = $arquivo->getClientMimeType();
-        $arquivoNome = Str::slug($data['nome']).'.'.$arquivoExtensao;
-        $arquivoSize = $arquivo->getSize(); // bytes
-        $arquivoMetaData = '$arquivo->getMetadata()';
-
-        echo"<pre>";
-        print_r($arquivo);
-
-        echo $arquivoExtensao;
-        echo"<br>";
-        echo $arquivoMimeType;
-        echo"<br>";
-        echo $arquivoNome;
-        echo"<br>";
-        echo $arquivoSize;
-        echo"<br>";
-        echo $arquivoMetaData;
-
-        $funcionarioArquivo = new $this->model();
-        $funcionarioArquivo->nome = $arquivoNome;
-        $funcionarioArquivo->descricao = $data['descricao'];
-        $funcionarioArquivo->observacao = $data['observacao'];
-        $funcionarioArquivo->arquivo = $arquivoNome;
-        $funcionarioArquivo->arquivo_caminho = '';
-        $funcionarioArquivo->content_type = $arquivoMimeType;
-        $funcionarioArquivo->metadata = $arquivoMimeType;
-        $funcionarioArquivo->byte_size = $arquivoSize;
-
-        dd($arquivo);
         try {
-            $funcionarioArquivo = new $this->model();
-            $funcionarioArquivo->nome = $data['nome'];
+            $arquivo = $data['arquivo'];
+            $arquivoExtensao = $arquivo->extension();
+            $arquivoMimeType = $arquivo->getClientMimeType();
+            $arquivoNome = Str::slug($data['nome']).'.'.$arquivoExtensao;
+            $arquivoSize = $arquivo->getSize(); // bytes
+            $arquivoMetaData = '$arquivo->getMetadata()';
 
-            // Str::slug($value)
-            // $funcionario->contatos()->save($funcionarioContato);
+            $funcionarioArquivo = new $this->model();
+
+            $caminho = $arquivo->storeAs(
+                $funcionario->id.'/'.$tipoArquivo->id.'/'.$funcionarioArquivo->id,
+                $arquivoNome,
+                'funcionarios'
+            );
+
+            $funcionarioArquivo->nome = $data['nome'];
+            $funcionarioArquivo->descricao = $data['descricao'];
+            $funcionarioArquivo->observacao = $data['observacao'];
+            $funcionarioArquivo->arquivo = $arquivoNome;
+            $funcionarioArquivo->arquivo_caminho = $caminho;
+            $funcionarioArquivo->content_type = $arquivoMimeType;
+            $funcionarioArquivo->metadata = $arquivoMimeType;
+            $funcionarioArquivo->byte_size = $arquivoSize;
+            $funcionarioArquivo->tipo_arquivo_id = $tipoArquivo->id;
+
+            $funcionario->arquivos()->save($funcionarioArquivo);
 
             return true;
         } catch (Exception $e) {

@@ -42,7 +42,8 @@ class ArquivoController extends Controller
     {
         return view('funcionario.pasta-digital.arquivos.create', [
             'funcionario' => $funcionario,
-            'tipoArquivo' => $tipoArquivo
+            'tipoArquivo' => $tipoArquivo,
+            'funcionarioArquivos' => $this->funcionarioArquivoRepository->paginateByTipoArquivo(10, 'nome', $funcionario->id, $tipoArquivo->id)
         ]);
     }
 
@@ -65,13 +66,14 @@ class ArquivoController extends Controller
         );
 
         if ($result === true) {
-            flash('Contato do funcionário adicionado com sucesso!')->success();
+            flash('Arquivo adicionado com sucesso!')->success();
         } else {
-            flash('Erro ao salvar o contato do funcionário! '.$result)->error();
+            flash('Erro ao salvar o arquivo! '.$result)->error();
         }
 
-        return redirect()->route('funcionario.dado-pessoal.contatos.create', [
-            'funcionario' => $funcionario
+        return redirect()->route('funcionario.pasta-digital.arquivos.create', [
+            'funcionario' => $funcionario,
+            'tipoArquivo' => $tipoArquivo
         ]);
     }
 

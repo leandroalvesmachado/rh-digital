@@ -22,9 +22,9 @@ class CreateFuncionarioArquivosTable extends Migration
             $table->string('nome');
             $table->text('descricao');
             $table->text('observacao')->nullable();
-            $table->string('arquivo');
-            $table->string('arquivo_caminho');
-            $table->string('content_type');
+            $table->text('arquivo');
+            $table->text('arquivo_caminho');
+            $table->text('content_type');
             $table->text('metadata');
             $table->bigInteger('byte_size')->comment('tamanho em bytes');
             $table->boolean('validado')->default(0);

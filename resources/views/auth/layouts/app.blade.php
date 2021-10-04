@@ -39,17 +39,19 @@
     <!-- Begin page -->
     <div class="account-pages" id="teste">
         <div class="container">
+            <div class="row justify-content-center mb-4">
+                <div class="col-md-8 col-lg-5 col-xl-5">
+                    <div class="text-center mt-4">
+                        <a href="{{ route('login') }}">
+                            <img src="{{ asset('images/logo-cgm.png') }}" class="img-fluid" alt="logo">
+                        </a>
+                    </div>
+                </div>
+            </div>
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-5 col-xl-5">
                     <div class="card">
                         <div class="card-body">
-                            <div class="text-center mt-4">
-                                <div class="mb-3">
-                                    <a href="{{ route('login') }}">
-                                        <img src="{{ asset('images/logo-cgm.png') }}" width="80%" alt="logo">
-                                    </a>
-                                </div>
-                            </div>
                             <div class="p-3">
                                 <h4 class="font-size-18 mt-2 text-center">RH DIGITAL</h4>
                                 @yield('content')

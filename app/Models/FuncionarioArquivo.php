@@ -92,4 +92,23 @@ class FuncionarioArquivo extends Model implements Auditable
         $this->attributes['nome'] = $value;
         $this->attributes['arquivo'] = Str::slug($value);
     }
+
+    public function getCreatedAtAttribute($value)
+    {
+        return Carbon::parse($value)->format('d/m/Y H:i:s');
+    }
+
+    public function getByteSizeAttribute($value) {
+        $units = array('B', 'KB', 'MB', 'GB', 'TB');
+
+        $bytes = max($value, 0);
+        $pow = floor(($bytes ? log($bytes) : 0) / log(1024));
+        $pow = min($pow, count($units) - 1);
+
+        // Uncomment one of the following alternatives
+        $bytes /= pow(1024, $pow);
+        $bytes /= (1 << (10 * $pow));
+
+        return round($bytes, 2) . ' ' . $units[$pow];
+    }
 }
